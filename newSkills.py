@@ -94,3 +94,39 @@
 #
 #
 # print(convert('BEEgeek'))
+
+
+# def filter_anagrams(word, words):
+#     dict_word = {}
+#     for k in word:
+#         dict_word[k] = dict_word.get(k, 0) + 1
+#
+#     result = []
+#
+#     for i in words:
+#         dict_words = {}
+#         for j in i:
+#             dict_words[j] = dict_words.get(j, 0) + 1
+#
+#         if dict_word == dict_words:
+#             result.append(i)
+#
+#     return result
+#
+#
+# word = 'abba'
+# anagrams = ['aabb', 'abcd', 'bbaa', 'dada']
+#
+# print(filter_anagrams(word, anagrams))
+
+
+# more-more-more comfortable solution
+
+# def filter_anagrams(word, anagrams):
+#     return [anagram for anagram in anagrams if sorted(anagram) == sorted(word)]
+#
+#
+# word = 'abba'
+# anagrams = ['aabb', 'abcd', 'bbaa', 'dada']
+#
+# print(filter_anagrams(word, anagrams))

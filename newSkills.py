@@ -59,3 +59,13 @@
 
 # def is_valid(pin):
 #     return pin.isdigit() and len(pin) in (4, 5, 6)
+
+
+# def print_given(*args, **kwargs):
+#     for i in args:
+#         print(i, type(i))
+#     for k, v in sorted(kwargs.items()):
+#         print(k, v, type(v))
+#
+#
+# print_given()

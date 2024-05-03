@@ -145,3 +145,26 @@
 #
 #
 # print(likes(['Том']))
+
+
+# def index_of_nearest(numbers, number):
+#     if len(numbers) == 0:
+#         return -1
+#     else:
+#         mn = [abs(i - number) for i in numbers]
+#         return mn.index(min(mn))
+#
+#
+# print(index_of_nearest([9, 5, 3, 2, 11], 4))
+
+
+# another solution
+
+# def index_of_nearest(nums, n):
+#     if nums:
+#         minimum = min(nums, key=lambda num: abs(num - n))
+#         return nums.index(minimum)
+#     return -1
+#
+#
+# print(index_of_nearest([7, 5, 4, 4, 3], 4))

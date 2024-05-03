@@ -18,3 +18,30 @@
 #     return '*' * 12 + card_number.replace(' ', '')[-4:]
 
 
+# def same_parity(numbers):
+#     total = []
+#     if len(numbers) == 0:
+#         return []
+#     elif numbers[0] % 2 == 0:
+#         for i in numbers:
+#             if i % 2 == 0:
+#                 total.append(i)
+#     else:
+#         for j in numbers:
+#             if j % 2 != 0:
+#                 total.append(j)
+#     return total
+#
+#
+# print(same_parity([-1, 1248234832443, 8]))
+
+# more comfortable solution
+
+# def same_parity(nums):
+#     return [i for i in nums if i % 2 == nums[0] % 2]
+
+
+# and more
+
+# def same_parity(numbers):
+#     return list(filter(lambda x: x % 2 == numbers[0] % 2))

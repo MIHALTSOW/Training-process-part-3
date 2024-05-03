@@ -69,3 +69,28 @@
 #
 #
 # print_given()
+
+
+# def convert(string):
+#     if len(list(filter(lambda x: x.isupper(), string))) > len(list(filter(lambda x: x.islower(), string))):
+#         return string.upper()
+#     if len(list(filter(lambda x: x.isupper(), string))) == len(list(filter(lambda x: x.islower(), string))):
+#         return string.lower()
+#     else:
+#         return string.lower()
+#
+#
+# print(convert('pi31415!'))
+
+
+# more comfortable solution
+
+# def convert(text):
+#     lower_count = len(list(filter(str.islower, text)))
+#     upper_count = len(list(filter(str.isupper, text)))
+#     if lower_count >= upper_count:
+#         return text.lower()
+#     return text.upper()
+#
+#
+# print(convert('BEEgeek'))

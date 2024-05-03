@@ -45,3 +45,17 @@
 
 # def same_parity(numbers):
 #     return list(filter(lambda x: x % 2 == numbers[0] % 2))
+
+
+# def is_valid(pin_code):
+#     if 4 <= len(pin_code) <= 6 and all(i in '0123456789' and i != ' ' for i in pin_code):
+#         return True
+#     return False
+#
+#
+# print(is_valid('89abc1'))
+
+# more faster solution
+
+# def is_valid(pin):
+#     return pin.isdigit() and len(pin) in (4, 5, 6)

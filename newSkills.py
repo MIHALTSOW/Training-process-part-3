@@ -232,3 +232,14 @@
 #     print('ru')
 # else:
 #     print('mix')
+
+
+# do counter
+# cnt = 0
+# push = input()
+# while push == (''
+#                ''):
+#     cnt += 1
+#     print(cnt)
+#     push = input()
+

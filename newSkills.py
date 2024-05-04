@@ -199,3 +199,36 @@
 # d1, d2, d3 = [int(input()) for _ in range(3)]
 #
 # print(min(d1 + d2 + d3, 2 * (d1 + d2), 2 * (d1 + d3), 2 * (d2 + d3)))
+
+
+# def find_word_language(word1, word2, word3):
+#     alphabet = []
+#     alphabet.append(word1)
+#     alphabet.append(word2)
+#     alphabet.append(word3)
+#     if all(i in 'AaBCcEeHKMOoPpTXxy' for i in alphabet):
+#         return 'en'
+#     if all(i in 'АаВСсЕеНКМОоРрТХху' for i in alphabet):
+#         return 'ru'
+#     else:
+#         return 'mix'
+#
+#
+# print(find_word_language('a', 'B', 'c'))
+
+# more fuster solution
+
+# langs = ['ru', 'mix', 'mix', 'en']
+# eng = 'AaBCcEeHKMOoPpTXxy'
+# ind = sum(input() in eng for _ in range(3))
+# print(langs[ind])
+
+# and another one, more prefer solution
+
+# letters = [input() for _ in range(3)]
+# if all(map(lambda x: x in 'AaBCcEeHKMOoPpTXxy', letters)):
+#     print('en')
+# elif all(map(lambda x: x in 'АаВСсЕеНКМОоРрТХху', letters)):
+#     print('ru')
+# else:
+#     print('mix')

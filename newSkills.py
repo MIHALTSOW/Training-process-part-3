@@ -243,3 +243,25 @@
 #     print(cnt)
 #     push = input()
 
+
+# n = list(map(int, input().split(' ')))
+#
+# def change_words(n=9, x=3, y=6, A=5, B=8):
+#     all_digits = [i for i in range(1, n + 1)]
+#     rev_xy = list(reversed(all_digits[x - 1:y]))
+#     all_digits = all_digits[:x - 1] + rev_xy + all_digits[y:]
+#     rev_ab = list(reversed(all_digits[A - 1:B]))
+#     all_digits = all_digits[:A - 1] + rev_ab + all_digits[B:]
+#     return all_digits
+#
+#
+# print(*change_words(n[0], n[1], n[2], n[3], n[4]))
+
+# or more faster solution
+# n, x, y, a, b = [int(i) for i in input().split()]
+# nums = list(range(1, n + 1))
+#
+# nums[x - 1:y] = reversed(nums[x - 1:y])
+# nums[a - 1:b] = reversed(nums[a - 1:b])
+#
+# print(*nums)

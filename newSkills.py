@@ -168,3 +168,13 @@
 #
 #
 # print(index_of_nearest([7, 5, 4, 4, 3], 4))
+
+
+# def spell(*args):
+#     fist_word_long_word = {}
+#     for i in args:
+#         fist_word_long_word[i[0].lower()] = max(fist_word_long_word.get(i[0].lower(), 0), len(i))
+#     return fist_word_long_word
+#
+#
+# print(spell('Математика', 'История', 'химия', 'биология', 'Информатика'))

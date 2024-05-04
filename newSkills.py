@@ -178,3 +178,24 @@
 #
 #
 # print(spell('Математика', 'История', 'химия', 'биология', 'Информатика'))
+
+# d1 - first shop
+# d2 - second shop
+# d3 - distance between shops
+
+# def minimum_distance(d1, d2, d3):
+#     first_way = d1 + d3 + d2
+#     second_way = d2 + d3 + d1
+#     third_way = (d1 + d1) + (d2 + d2)
+#     forth_way = d2 + d3 + d3 + d2
+#     five_way = d1 + d3 + d3 + d1
+#     return min(first_way, second_way, third_way, forth_way, five_way)
+#
+#
+# print(minimum_distance(100, 33, 34))
+
+# more faster solution
+
+# d1, d2, d3 = [int(input()) for _ in range(3)]
+#
+# print(min(d1 + d2 + d3, 2 * (d1 + d2), 2 * (d1 + d3), 2 * (d2 + d3)))

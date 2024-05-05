@@ -342,3 +342,55 @@
 #     data[sum_of_digits] = data.get(sum_of_digits, 0) + 1
 #
 # print(max(data.values()))
+
+# only code, without function
+# n = int(input())
+# languages = [input() for i in range(n)]
+# result = {}
+# total = []
+#
+# mn_len = min(languages, key=len)
+#
+# for k, j in enumerate(languages):
+#     result[k] = j
+#
+# for i in mn_len.split(', '):
+#     cnt = 0
+#     for j in sorted(result.values()):
+#         if i in j:
+#             cnt += 1
+#             if cnt == len(result):
+#                 total.append(i)
+#
+# print(*sorted(total), sep=', ')
+
+
+# implemented through function (реализовал через функцию)
+n = int(input())
+languages = [input() for i in range(n)]
+
+
+def all_languages(n, languages):
+    result = {}
+    total = []
+
+    mn_len = min(languages, key=len)
+
+    for k, j in enumerate(languages):
+        result[k] = j
+
+    for i in mn_len.split(', '):
+        cnt = 0
+        for j in sorted(result.values()):
+            if i in j:
+                cnt += 1
+                if cnt == len(result):
+                    total.append(i)
+
+    if len(total) == 0:
+        print('Сериал снять не удастся')
+
+    return print(*sorted(total), sep=', ')
+
+
+all_languages(n, languages)

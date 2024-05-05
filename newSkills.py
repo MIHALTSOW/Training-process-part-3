@@ -265,3 +265,24 @@
 # nums[a - 1:b] = reversed(nums[a - 1:b])
 #
 # print(*nums)
+
+
+# numbers = list(map(int, input().split(' ')))
+#
+#
+# def more_one_input(numbers):
+#     result = {}
+#     for i in sorted(numbers):
+#         result[i] = result.get(i, 0) + 1
+#     for k, v in result.items():
+#         if v > 1:
+#             print(k, end=' ')
+#
+#
+# more_one_input(numbers)
+
+# ore we can use lambda
+
+# nums = [int(i) for i in input().split()]
+# print(*sorted(filter(lambda x: nums.count(x) > 1, set(nums))))
+

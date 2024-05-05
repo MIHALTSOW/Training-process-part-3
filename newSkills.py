@@ -286,3 +286,59 @@
 # nums = [int(i) for i in input().split()]
 # print(*sorted(filter(lambda x: nums.count(x) > 1, set(nums))))
 
+
+# this is my try
+
+# def group_sum(num):
+#     result = {}
+#     keys = []
+#     valus = []
+#
+#     # for i in range(1, num + 1):
+#     #     if len(str(i)) == 1:
+#     #         keys.append(i)
+#     #     else:
+#     #         valus.append(str(i))
+#     for i in range(1, num + 1):
+#         valus.append(str(i))
+#         keys.append(str(i))
+#         # keys.append(str(i))
+#
+#     if len(valus) == 0:
+#         return 1
+#     #
+#     for j in keys:
+#         for k in valus:
+#             if j == sum(map(int, k)):
+#                 result[j] = result.get(j, []) + [k]
+#     return result
+#     # for x in result.values():
+#     #     print(len(x))
+
+
+# codeium help
+# def group_sum(num):
+#     result = {}
+#
+#     for i in range(1, num + 1):
+#         digits_sum = sum(map(int, str(i)))
+#         if digits_sum in result:
+#             result[digits_sum].append(str(i))
+#         else:
+#             result[digits_sum] = [str(i)]
+#
+#     mx = max(result.values(), key=len)
+#     return len(mx)
+#
+#
+# print(group_sum(1337))
+
+# solution from answers
+
+# data = {}
+#
+# for i in range(1, int(input()) + 1):
+#     sum_of_digits = sum(map(lambda d: int(d), str(i)))
+#     data[sum_of_digits] = data.get(sum_of_digits, 0) + 1
+#
+# print(max(data.values()))

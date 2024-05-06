@@ -366,31 +366,95 @@
 
 
 # implemented through function (реализовал через функцию)
-n = int(input())
-languages = [input() for i in range(n)]
+# n = int(input())
+# languages = [input() for i in range(n)]
+#
+#
+# def all_languages(n, languages):
+#     result = {}
+#     total = []
+#
+#     mn_len = min(languages, key=len)
+#
+#     for k, j in enumerate(languages):
+#         result[k] = j
+#
+#     for i in mn_len.split(', '):
+#         cnt = 0
+#         for j in sorted(result.values()):
+#             if i in j:
+#                 cnt += 1
+#                 if cnt == len(result):
+#                     total.append(i)
+#
+#     if len(total) == 0:
+#         print('Сериал снять не удастся')
+#
+#     return print(*sorted(total), sep=', ')
+#
+#
+# all_languages(n, languages)
+
+# more faster solution
 
 
-def all_languages(n, languages):
-    result = {}
-    total = []
+# this is my try
 
-    mn_len = min(languages, key=len)
+# main_word = 'машина'
+# # main_word = 'весть'
+# # main_word = 'внук'
+# # n = int(input())
+# # all_words = [input() for _ in range(n)]
+# all_words = ['сеть', 'машинист', 'дорога', 'урок', 'работа', 'аксиома', 'железо', 'ветеран']
+# # all_words = ['месть', 'гость', 'лань']
+# # all_words = ['брат', 'дом', 'ворон', 'сват', 'обед']
+#
+#
+# def only_vowel(main_word):
+#     words = 'аеёиоуыэюя'
+#
+#     count_vowel = len([i for i in main_word if i in words])
+#
+#     pos_match = []
+#     pos_main = []
+#
+#     for i in all_words:
+#         cnt = 0
+#         for j in i:
+#             if j in words:
+#                 cnt += 1
+#         if cnt == count_vowel:
+#             pos_match.append(i)
+#
+#     cnt = 0
+#     for i in main_word:
+#         cnt += 1
+#         if i in words:
+#             pos_main.append(cnt)
+#
+#     for k in pos_match:
+#         cnt = 0
+#         pos_words = []
+#         for j in k:
+#             cnt += 1
+#             if j in words:
+#                 pos_words.append(cnt)
+#         if pos_main == pos_words:
+#             print(k)
+#
+#     # print(pos_match)
+#     # print(pos_main)
+#     # print(pos_words)
+#
+#
+# only_vowel(main_word)
 
-    for k, j in enumerate(languages):
-        result[k] = j
+# how complete teacher
 
-    for i in mn_len.split(', '):
-        cnt = 0
-        for j in sorted(result.values()):
-            if i in j:
-                cnt += 1
-                if cnt == len(result):
-                    total.append(i)
-
-    if len(total) == 0:
-        print('Сериал снять не удастся')
-
-    return print(*sorted(total), sep=', ')
-
-
-all_languages(n, languages)
+# vowels = ('а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я')
+# pattern = [i for i, c in enumerate(input()) if c in vowels]
+#
+# for _ in range(int(input())):
+#     word = input()
+#     if [i for i, c in enumerate(word) if c in vowels] == pattern:
+#         print(word)

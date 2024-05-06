@@ -458,3 +458,43 @@
 #     word = input()
 #     if [i for i, c in enumerate(word) if c in vowels] == pattern:
 #         print(word)
+
+
+# n1 = int(input())
+# all_emails = [input() for _ in range(n1)]
+#
+# n2 = int(input())
+# new_emails = [input() for _ in range(n2)]
+
+
+# i tried this
+# n1 = 6
+# all_emails = ['ivan-petrov@beegeek.bzz', 'petr-ivanov@beegeek.bzz', 'ivan-petrov1@beegeek.bzz',
+#               'ivan-ivanov@beegeek.bzz', 'ivan-ivanov1@beegeek.bzz', 'ivan-ivanov2@beegeek.bzz']
+#
+# n2 = 3
+# new_emails = ['ivan-ivanov', 'petr-petrov', 'ivan-ivanov']
+#
+#
+# def add_new(all_emails, new_emails):
+#     all_email_names = [i.split('@')[0] for i in all_emails]
+#
+#
+#     cnt_dict = {}
+#     # print(all_emails)
+#
+#     for i in new_emails:
+#         if i not in all_email_names:
+#             all_email_names.append(i)
+#             new_email = f'{i}@beegeek.bzz'
+#         else:
+#             if i in cnt_dict:
+#                 cnt_dict[i] += 1
+#             else:
+#                 cnt_dict[i] = 1
+#                 new_email = f'{i}{cnt_dict[i]}@beegeek.bzz'
+#
+#     print(new_email)
+#
+#
+# add_new(all_emails, new_emails)

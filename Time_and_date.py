@@ -196,3 +196,196 @@
 # date2 = date(2011, 7, 14)
 #
 # print(saturdays_between_two_dates(date1, date2))
+
+
+# information from 3.2
+
+# from datetime import date, time
+
+# my_date = date(2021, 8, 10)
+# my_time = time(7, 18, 34)
+#
+# print(my_date)
+# print(my_time)
+#
+# print(my_date.strftime('%d/%m/%y'))
+# print(my_date.strftime('%a %d, %B %Y'))
+# print(my_time.strftime('%H.%M.%S'))
+
+
+# given_date = date(2021, 7, 17)
+#
+# print(given_date.strftime('%A %d %B %Y'))
+# print(given_date.strftime('%Y/%m/%d'))
+# print(given_date.strftime('%d.%m.%Y (%A, %B)'))
+# print(given_date.strftime('Day of year: %j, week number: %U'))
+
+
+# given_time = time(14, 4, 29)
+#
+# print(given_time.strftime('Hours: %H, minutes: %M, seconds: %S'))
+# print(given_time.strftime('%H:%M:%S'))
+# print(given_time.strftime('%I:%M:%S %p'))
+
+
+# import locale
+#
+# locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+#
+# my_date = date(2021, 8, 10)
+# print(my_date.strftime('%A %d, %B %Y'))
+
+
+# from datetime import time
+#
+# alarm = time(7, 30, 25)
+#
+# print('Hours:', alarm.strftime('%H'))
+# print('Minutes:', alarm.strftime('%M'))
+# print('Seconds:', alarm.strftime('%S'))
+
+
+# from datetime import date
+#
+# birthday = date(1999, 11, 18)
+#
+# print('Month name:', birthday.strftime('%B'))
+# print('Day of week:', birthday.strftime('%A'))
+# print('Year:', birthday.strftime('%Y'))
+# print('Month:', birthday.strftime('%m'))
+# print('Day:', birthday.strftime('%d'))
+
+
+# from datetime import date
+#
+# andrew = date(1992, 8, 24)
+#
+# print(andrew.strftime('%Y-%m'))
+# print(andrew.strftime('%B (%Y)'))
+# print(andrew.strftime('%Y-%j'))
+
+
+# from datetime import date, time
+#
+# day, month, year = input('Введите дату в формате ДД.ММ.ГГГГ').split('.')
+# hour, minute, second = input('Введите время в формате ЧЧ:ММ:СС').split(':')
+#
+# my_date = date(int(year), int(month), int(day))
+# my_time = time(int(hour), int(minute), int(second))
+#
+# print(my_date)
+# print(my_time)
+
+
+# from datetime import date
+#
+# date1, date2 = date.fromisoformat(input()), date.fromisoformat(input())
+#
+#
+# def min_max_dates(date_first, date_second):
+#     if date_first < date_second:
+#         print(date1.strftime('%d-%m (%Y)'))
+#     else:
+#         print(date2.strftime('%d-%m (%Y)'))
+#
+#
+# min_max_dates(date1, date2)
+
+
+# from datetime import date
+#
+# all_dates = [date.fromisoformat(input()) for _ in range(int(input()))]
+
+# def output_ground_dates(dates):
+#     sort_dates = sorted(dates)
+#     for i in sort_dates:
+#         print(i.strftime('%d/%m/%Y'))
+#
+#
+# output_ground_dates(all_dates)
+
+
+# from datetime import date
+
+# def print_good_dates(all_dates):
+#     sort_dates = sorted(all_dates)
+#     for i in sort_dates:
+#         if i.year == 1992 and int(i.month) + int(i.day) == 29:
+#             print(i.strftime('%B %d, %Y'))
+
+
+# maybe more compfortable solution
+# def print_good_dates(all_dates):
+#     for d in sorted(filter(lambda x: x.year == 1992 and x.month + x.day == 29, all_dates)):
+#         print(d.strftime('%B %d, %Y'))
+#
+#
+# dates = [date(1992, 10, 19), date(1991, 12, 6), date(1992, 9, 20)]
+# print_good_dates(dates)
+#
+# dates = [date(1993, 9, 15), date(2021, 11, 2), date(2000, 7, 7)]
+# print_good_dates(dates)
+
+# from datetime import date
+
+# this version not work good, don't use it
+
+# def is_correct(day, month, year):
+#     if month == 2 and day >= 29:
+#         return False
+#     return 1 <= day <= 31 and 1 <= month <= 12 and 1900 <= year <= 2999
+#
+# this version is good
+
+# def is_valid_date(day, month, year):
+#     try:
+#         date(year, month, day)
+#         return True
+#     except ValueError:
+#         return False
+#
+# print(is_correct(31, 12, 2021))
+# print(is_correct(31, 13, 2021))
+# print(is_correct(31, 2, 2021))
+
+# more interesting solution (not recommend)
+
+# def is_correct(day, month, year):
+#     try:
+#         date(year, month, day)
+#         return True
+#     except:
+#         return False
+
+
+# from datetime import date
+#
+#
+# def is_valid_date(day, month, year):
+#     try:
+#         date(year, month, day)
+#         return True
+#     except ValueError:
+#         return False
+#
+#
+# def validate_dates():
+#     cnt = 0
+#     while True:
+#         user_input = input()
+#         if user_input == 'end':
+#             break
+#         parts = user_input.split('.')
+#         if len(parts) != 3:
+#             print('Некорректная')
+#             continue
+#         day, month, year = map(int, parts)
+#         if is_valid_date(day, month, year):
+#             print('Корректная')
+#             cnt += 1
+#         else:
+#             print('Некорректная')
+#     print(cnt)
+#
+#
+# validate_dates()

@@ -389,3 +389,195 @@
 #
 #
 # validate_dates()
+
+
+# from datetime import datetime
+#
+# text = 'Уважаемый пациент, доктор готов принять Вас 15.07.2022 в 08:30'
+#
+# dt = datetime.strptime(text, 'Уважаемый пациент, доктор готов принять Вас %d.%m.%Y в %H:%M')
+#
+# print(dt)
+
+
+# from datetime import datetime
+#
+# seconds = 2483228800
+# dt = datetime(2011, 11, 4)
+#
+# print(datetime.fromtimestamp(seconds))
+#
+# print(dt.timestamp())
+
+
+# from datetime import datetime
+#
+# times_of_purchases = [
+#     datetime(2017, 10, 1, 12, 23, 25),
+#     datetime(2017, 10, 1, 15, 26, 26),
+#     datetime(2017, 10, 1, 15, 42, 57),
+#     datetime(2017, 10, 1, 17, 49, 59),
+#     datetime(2017, 10, 2, 6, 37, 10),
+#     datetime(2017, 10, 2, 6, 42, 53),
+#     datetime(2017, 10, 2, 8, 56, 45),
+#     datetime(2017, 10, 2, 9, 18, 3),
+#     datetime(2017, 10, 2, 12, 23, 48),
+#     datetime(2017, 10, 2, 12, 45, 5),
+#     datetime(2017, 10, 2, 12, 48, 8),
+#     datetime(2017, 10, 2, 12, 10, 54),
+#     datetime(2017, 10, 2, 19, 18, 10),
+#     datetime(2017, 10, 2, 12, 31, 45),
+#     datetime(2017, 10, 3, 20, 57, 10),
+#     datetime(2017, 10, 4, 7, 4, 57),
+#     datetime(2017, 10, 4, 7, 13, 31),
+#     datetime(2017, 10, 4, 7, 13, 42),
+#     datetime(2017, 10, 4, 7, 21, 54),
+#     datetime(2017, 10, 4, 14, 22, 12),
+#     datetime(2017, 10, 4, 14, 50),
+#     datetime(2017, 10, 4, 15, 7, 27),
+#     datetime(2017, 10, 4, 12, 44, 49),
+#     datetime(2017, 10, 4, 12, 46, 41),
+#     datetime(2017, 10, 4, 16, 32, 33),
+#     datetime(2017, 10, 4, 16, 34, 44),
+#     datetime(2017, 10, 4, 16, 46, 59),
+#     datetime(2017, 10, 4, 12, 26, 6)
+# ]
+#
+# more_than_12 = 0
+# less_than_12 = 0
+#
+# for time in times_of_purchases:
+#     if time.hour > 12:
+#         more_than_12 += 1
+#     elif time.hour < 12:
+#         less_than_12 += 1
+#
+# if more_than_12 > less_than_12:
+#     print('После полудня')
+# else:
+#     print('До полудня')
+
+# second variant
+# res = 0
+# for i in times_of_purchases:
+#     if i.hour >= 12:
+#         res += 1
+#     else:
+#         res -= 1
+#
+# print(('После', 'До')[res < 0], 'полудня')
+
+
+# from datetime import date, time, datetime
+#
+# dates = [
+#     date(1793, 8, 23),
+#     date(1410, 3, 11),
+#     date(804, 11, 12),
+#     date(632, 6, 4),
+#     date(295, 1, 23),
+#     date(327, 8, 24),
+#     date(167, 4, 16),
+#     date(229, 1, 24),
+#     date(1239, 2, 5),
+#     date(1957, 7, 14),
+#     date(197, 8, 24),
+#     date(479, 9, 6)
+# ]
+#
+# times = [
+#     time(7, 33, 27),
+#     time(21, 2, 10),
+#     time(17, 20, 47),
+#     time(20, 8, 59),
+#     time(12, 42, 56),
+#     time(15, 9, 57),
+#     time(17, 47, 9),
+#     time(9, 40, 2),
+#     time(11, 47, 1),
+#     time(17, 27, 10),
+#     time(17, 55, 40),
+#     time(9, 14, 9)
+# ]
+#
+# all_time_date = []
+# for time, date in zip(times, dates):
+#     date_and_time = all_time_date.append(datetime.combine(date, time))
+#
+# print(*sorted(all_time_date, key=lambda x: x.second), sep='\n')
+
+# from datetime import datetime
+
+# data = {
+#     'Дима': ('03.11.2021 09:31:18', '03.11.2021 11:41:28'),
+#     'Геор': ('01.11.2021 09:03:04', '01.11.2021 12:40:35'),
+#     'Анна': ('02.11.2021 04:41:54', '02.11.2021 05:39:40'),
+#     'Илина': ('02.11.2021 01:36:40', '02.11.2021 04:48:27'),
+#     'Герман': ('04.11.2021 07:51:19', '04.11.2021 09:53:53'),
+#     'Руслан': ('01.11.2021 11:26:06', '01.11.2021 12:56:24'),
+#     'Лера': ('03.11.2021 11:09:41', '03.11.2021 14:37:41'),
+#     'Егор': ('03.11.2021 05:29:38', '03.11.2021 06:01:59'),
+#     'Максим': ('05.11.2021 13:05:03', '05.11.2021 14:27:41'),
+#     'Саша': ('03.11.2021 04:14:26', '03.11.2021 05:10:58'),
+#     'Марина': ('05.11.2021 15:21:06', '05.11.2021 18:33:46')
+# }
+
+# print(max(data, key=lambda x: datetime.strptime(data[x][1], '%d.%m.%Y %H:%M:%S') - datetime.strptime(data[x][0],
+#                                                                                                      '%d.%m.%Y %H:%M:%S')))
+# worktime = {}
+# for key, value in data.items():
+#     worktime[key] = (
+#             datetime.strptime(value[1], '%d.%m.%Y %H:%M:%S') - datetime.strptime(value[0], '%d.%m.%Y %H:%M:%S'))
+#
+# print(max(worktime, key=worktime.get))
+
+
+# doubtful, but okay
+
+# from datetime import datetime, timedelta
+#
+#
+# def is_available_date(booked_dates, date_for_booking):
+#     def parse_date(date_str):
+#         return datetime.strptime(date_str, '%d.%m.%Y')
+#
+#     def is_date_booked(date, booked_dates):
+#         for booked_date in booked_dates:
+#             if '-' in booked_date:
+#                 start_date_str, end_date_str = booked_date.split('-')
+#                 start_date = parse_date(start_date_str)
+#                 end_date = parse_date(end_date_str)
+#                 if start_date <= date <= end_date:
+#                     return True
+#             else:
+#                 if date == parse_date(booked_date):
+#                     return True
+#         return False
+#
+#     if '-' in date_for_booking:
+#         start_date_str, end_date_str = date_for_booking.split('-')
+#         start_date = parse_date(start_date_str)
+#         end_date = parse_date(end_date_str)
+#         current_date = start_date
+#         while current_date <= end_date:
+#             if is_date_booked(current_date, booked_dates):
+#                 return False
+#             current_date += timedelta(days=1)
+#     else:
+#         if is_date_booked(parse_date(date_for_booking), booked_dates):
+#             return False
+#
+#     return True
+#
+#
+# dates = ['04.11.2021', '05.11.2021-09.11.2021']
+# some_date = '01.11.2021'
+# print(is_available_date(dates, some_date))
+#
+# dates = ['04.11.2021', '05.11.2021-09.11.2021']
+# some_date = '01.11.2021-04.11.2021'
+# print(is_available_date(dates, some_date))
+#
+# dates = ['04.11.2021', '05.11.2021-09.11.2021']
+# some_date = '06.11.2021'
+# print(is_available_date(dates, some_date))

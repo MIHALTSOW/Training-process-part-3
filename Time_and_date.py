@@ -581,3 +581,250 @@
 # dates = ['04.11.2021', '05.11.2021-09.11.2021']
 # some_date = '06.11.2021'
 # print(is_available_date(dates, some_date))
+
+
+# from datetime import datetime, timedelta
+#
+# dt = datetime(2021, 11, 4, 13, 6) + timedelta(weeks=1, hours=12)
+#
+# print(dt.strftime('%d.%m.%Y %H:%M:%S'))
+
+
+# from datetime import date, timedelta
+#
+# today = date(2021, 11, 4)
+# birthday = date(2022, 10, 6)
+#
+# days = (birthday - today).days
+# print(days)
+
+
+# my solution
+
+# from datetime import timedelta, date, datetime
+#
+# date_str = input()
+# date_input = datetime.strptime(date_str, '%d.%m.%Y').date()
+#
+#
+# def print_date_after_before(date1):
+#     date_before = date1 - timedelta(days=1)
+#     date_after = date1 + timedelta(days=1)
+#     date_before = date_before.strftime('%d.%m.%Y')
+#     date_after = date_after.strftime('%d.%m.%Y')
+#     print(date_before, date_after, sep='\n')
+#
+#
+# print_date_after_before(date_input)
+
+
+# teacher solution
+
+# from datetime import datetime, timedelta
+#
+# pattern, td = '%d.%m.%Y', timedelta(days=1)
+#
+# dt = datetime.strptime(input(), pattern)
+#
+# print((dt - td).strftime(pattern))
+# print((dt + td).strftime(pattern))
+
+
+# my solution
+# from datetime import timedelta
+#
+# input_time = input()
+# hours, minutes, seconds = map(int, input_time.split(':'))
+# delta = timedelta(hours=hours, minutes=minutes, seconds=seconds)
+#
+#
+# def second_by_time(times):
+#     total_seconds = times.total_seconds()
+#     print(int(total_seconds))
+#
+#
+# second_by_time(delta)
+
+# teacher solution
+
+# from datetime import timedelta
+#
+# h, m, s = map(int, input().split(':'))
+#
+# td = timedelta(hours=h, minutes=m, seconds=s)
+#
+# print(int(td.total_seconds()))
+
+# my solution
+
+# from datetime import timedelta, datetime
+#
+# h, m, s = map(int, input().split(':'))
+# start_timer = timedelta(hours=h, minutes=m, seconds=s)
+#
+# length_timer = timedelta(seconds=int(input()))
+#
+#
+# def timer(start, length):
+#     total_time = start + length
+#     total_seconds = total_time.total_seconds() % (24 * 3600)
+#     total_time = timedelta(seconds=total_seconds)
+#
+#     # Convert timedelta to datetime for formatting
+#     base_datetime = datetime(1, 1, 1)  # Base date for timedelta conversion
+#     formatted_time = (base_datetime + total_time).time()
+#     print(formatted_time.strftime("%H:%M:%S"))
+#
+#
+# timer(start_timer, length_timer)
+
+
+# teacher solution
+
+# from datetime import timedelta, datetime
+#
+# pattern = '%H:%M:%S'
+# dt = datetime.strptime(input(), pattern) + timedelta(seconds=int(input()))
+#
+# print(dt.strftime(pattern))
+
+
+# from datetime import datetime
+#
+#
+# def num_of_sundays(year):
+#     count = 0
+#     for month in range(1, 13):
+#         for day in range(1, 32):
+#             try:
+#                 date_obj = datetime(year, month, day)
+#                 if date_obj.weekday() == 6:
+#                     count += 1
+#             except ValueError:
+#                 break
+#     return count
+#
+#
+# # Example usage
+# year = 2022
+# print(num_of_sundays(year))
+
+
+# from datetime import datetime, timedelta
+#
+# pattern = '%d.%m.%Y'
+# date_correct = datetime.strptime(input(), pattern)
+#
+#
+# def write_10_tasks(start_date):
+#     print(start_date.strftime(pattern), sep='\n')
+#     for i in range(2, 11):
+#         start_date += timedelta(days=i)
+#         print(start_date.strftime(pattern), sep='\n')
+#
+#
+# write_10_tasks(date_correct)
+
+
+# my solution
+
+# from datetime import datetime
+#
+#
+# def days_between_dates(date1, date2):
+#     pattern = '%d.%m.%Y'
+#     date1 = datetime.strptime(date1, pattern)
+#     date2 = datetime.strptime(date2, pattern)
+#     delta = date2 - date1
+#     return delta.days
+#
+#
+# split_date = [i for i in input().split(' ')]
+#
+# total_date = []
+# for i in range(len(split_date)):
+#     try:
+#         total_date.append(abs(days_between_dates(split_date[i], split_date[i + 1])))
+#     except IndexError:
+#         break
+# print(total_date)
+
+# teacher solution
+
+# from datetime import datetime
+#
+# dates = [datetime.strptime(dt, '%d.%m.%Y') for dt in input().split()]
+#
+# diffs = [abs(dates[i] - dates[i - 1]).days for i in range(1, len(dates))]
+#
+# print(diffs)
+
+
+# this code uncorrected
+# def fill_up_missing_dates(dates):
+#     date_list = []
+#     pattern = '%d.%m.%Y'
+#
+#     mxDate, mnDate = max(dates), min(dates)
+#     mxDate, mnDate = datetime.strptime(mxDate, pattern), datetime.strptime(mnDate, pattern)
+#
+#     delta = mxDate - mnDate
+#     all_dates = [mnDate + timedelta(days=i) for i in range(delta.days + 1)]
+#
+#     for date in all_dates:
+#         date_list.append(datetime.strftime(date, pattern))
+#
+#     return date_list
+
+# let's try update this code
+
+# from datetime import datetime, timedelta
+
+
+# def fill_up_missing_dates(dates):
+#     date_list = []
+#
+#     pattern = '%d.%m.%Y'
+#     dates = sorted(dates, key=lambda x: datetime.strptime(x, pattern))
+#
+#     start_date = datetime.strptime(dates[0], pattern)
+#     end_date = datetime.strptime(dates[-1], pattern)
+#     delta = (end_date - start_date).days
+#
+#     for i in range(delta + 1):
+#         date = start_date + timedelta(days=i)
+#         date_list.append(datetime.strftime(date, pattern))
+#
+#     return date_list
+#
+#
+# dates = ['20.07.2021', '16.05.2021', '19.01.2021', '18.11.2021', '17.10.2021', '15.03.2021']
+# print(len(fill_up_missing_dates(dates)))
+
+# dates = ['01.11.2021', '07.11.2021', '04.11.2021', '03.11.2021']
+# print(fill_up_missing_dates(dates))
+
+
+# dates = ['01.11.2021', '04.11.2021', '09.11.2021', '15.11.2021']
+# print(fill_up_missing_dates(dates))
+
+
+# from datetime import datetime, timedelta
+#
+# # Input start and end times
+# start_time = datetime.strptime(input(), '%H:%M')
+# end_time = datetime.strptime(input(), '%H:%M')
+#
+#
+# def generate_schedule(start_time, end_time):
+#     lesson_duration = timedelta(minutes=45)
+#     break_time = timedelta(minutes=10)
+#
+#     current_time = start_time
+#     while current_time + lesson_duration <= end_time:
+#         print(f'{current_time.strftime("%H:%M")} - {(current_time + lesson_duration).strftime("%H:%M")}')
+#         current_time += lesson_duration + break_time
+#
+#
+# if end_time - start_time >= timedelta(minutes=45):
+#     generate_schedule(start_time, end_time)

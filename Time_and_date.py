@@ -828,3 +828,365 @@
 #
 # if end_time - start_time >= timedelta(minutes=45):
 #     generate_schedule(start_time, end_time)
+
+
+# my solution
+# from datetime import date, time, datetime, timedelta
+#
+# data = [
+#     ('07:14', '08:46'),
+#     ('09:01', '09:37'),
+#     ('10:00', '11:43'),
+#     ('12:13', '13:49'),
+#     ('15:00', '15:19'),
+#     ('15:58', '17:24'),
+#     ('17:57', '19:21'),
+#     ('19:30', '19:59')
+# ]
+#
+#
+# def minutes_for_all_tasks(data):
+#     all_minutes = []
+#     pattern = '%H:%M'
+#     for i in data:
+#         start, end = datetime.strptime(i[0], pattern), datetime.strptime(i[1], pattern)
+#         all_minutes.append((end - start).seconds // 60)
+#     return print(sum(all_minutes))
+#
+#
+# minutes_for_all_tasks(data)
+
+# teacher solution
+
+# from datetime import date, time, datetime, timedelta
+#
+# data = [('07:14', '08:46'),
+#         ('09:01', '09:37'),
+#         ('10:00', '11:43'),
+#         ('12:13', '13:49'),
+#         ('15:00', '15:19'),
+#         ('15:58', '17:24'),
+#         ('17:57', '19:21'),
+#         ('19:30', '19:59')]
+#
+# seconds = 0
+#
+# for i in data:
+#     start, end = [datetime.strptime(x, '%H:%M') for x in i]
+#     seconds += (end - start).total_seconds()
+#
+# print(int(seconds // 60))
+
+
+# most difficult task
+
+# from datetime import datetime, timedelta
+#
+#
+# def count_13th_weekday():
+#     week = {
+#         0: 0,
+#         1: 0,
+#         2: 0,
+#         3: 0,
+#         4: 0,
+#         5: 0,
+#         6: 0
+#     }
+#
+#     start_count = datetime.strptime('01.01.0001', '%d.%m.%Y')
+#     end_count = datetime.strptime('31.12.9999', '%d.%m.%Y')
+#     delta = (end_count - start_count).days
+#
+#     for i in range(delta + 1):
+#         date = start_count + timedelta(days=i)
+#         if date.day == 13:
+#             week[date.weekday()] += 1
+#
+#     print(*week.values(), sep='\n')
+#
+#
+# count_13th_weekday()
+
+
+# from datetime import datetime
+#
+# workingtime = {
+#     'Monday': '9:00 - 21:00',
+#     'Tuesday': '9:00 - 21:00',
+#     'Wednesday': '9:00 - 21:00',
+#     'Thursday': '9:00 - 21:00',
+#     'Friday': '9:00 - 21:00',
+#     'Saturday': '10:00 - 18:00',
+#     'Sunday': '10:00 - 18:00'
+# }
+#
+# date_str, time_str = input('Enter date and time in format dd.mm.yyyy HH:MM: ').split()
+# date_time = datetime.strptime(date_str + ' ' + time_str, '%d.%m.%Y %H:%M')
+# day_week = date_time.weekday()
+#
+# for key, value in workingtime.items():
+#     if day_week == list(workingtime.keys()).index(key):
+#         start = datetime.strptime(value.split(' - ')[0], '%H:%M').time()
+#         end = datetime.strptime(value.split(' - ')[1], '%H:%M').time()
+#         if start <= date_time.time() < end:
+#             remaining_minutes = (end.hour - date_time.hour) * 60 + (end.minute - date_time.minute)
+#             print(remaining_minutes)
+#         else:
+#             print('Магазин не работает')
+
+
+# from datetime import datetime, timedelta
+#
+# num = 3
+# num = int(input())
+
+# input_date = ['Иван Петров 01.05.1995', 'Петр Сергеев 29.04.1995', 'Сергей Иванов 01.01.1996']
+
+# input_date = ['Иван Петров 01.05.1995', 'Петр Сергеев 29.05.1995', 'Сергей Иванов 01.05.1995']
+
+# input_date = [
+#     'Анна Цивинская 12.08.2000',
+#     'Сослан Найфонов 12.08.2000',
+#     'Фатима Бекузарова 12.08.2000',
+#     'Геор Гагиев 12.08.2000',
+#     'Аслан Короев 12.08.2000',
+#     'Владимир Чен 12.08.2000'
+# ]
+
+# input_date = [input() for _ in range(num)]
+# print(input_date)
+
+# dict_time = {}
+#
+# for i in input_date:
+#     name, second_name, date = i.split()
+#     date = datetime.strptime(date, '%d.%m.%Y')
+#     dict_time[name + ' ' + second_name] = date
+#
+# mn_time_key = min(dict_time, key=dict_time.get)
+# mn_time_value = dict_time[mn_time_key]
+#
+# if len(set(dict_time.values())) == len(dict_time.values()):
+#     print(mn_time_value.strftime('%d.%m.%Y'), mn_time_key)
+# else:
+#     print(mn_time_value.strftime('%d.%m.%Y'), (len(dict_time.values()) - len(set(dict_time.values()))) + 1)
+
+# from datetime import datetime
+
+# input_date = [
+#     'Иван Петров 01.05.1995',
+#     'Петр Сергеев 29.04.1995',
+#     'Сергей Романов 01.01.1996',
+#     'Роман Григорьев 01.01.1996',
+#     'Григорий Иванов 01.05.1995'
+# ]
+
+# input_date = [
+#     'Иван Петров 14.10.1995',
+#     'Петр Сергеев 29.04.1992',
+#     'Сергей Романов 01.01.1994',
+#     'Роман Григорьев 01.01.1994',
+#     'Григорий Иванов 16.07.1995'
+# ]
+
+# input_date = [
+#     'Иван Петров 04.05.1995',
+#     'Петр Сергеев 04.05.1995',
+#     'Сергей Романов 01.02.1993',
+#     'Роман Григорьев 01.02.1993',
+#     'Григорий Иванов 06.07.1999',
+#     'Тимур Гуев 06.07.1999'
+# ]
+
+# dict_time = {}
+#
+# for i in input_date:
+#     name, second_name, date = i.split()
+#     date = datetime.strptime(date, '%d.%m.%Y')
+#     dict_time[name + ' ' + second_name] = date
+#
+# mn_time_key = min(dict_time, key=dict_time.get)
+# mn_time_value = dict_time[mn_time_key]
+#
+# born_more_employees = {}
+#
+# for key, value in dict_time.items():
+#     born_more_employees[value] = born_more_employees.get(value, 0) + 1
+#
+# for key, value in sorted(born_more_employees.items()):
+#     if value == max(born_more_employees.values()):
+#         print(key.strftime('%d.%m.%Y'))
+
+
+# import time
+#
+# start_time = time.monotonic()
+#
+# for i in range(5):
+#     print(i)
+#     time.sleep(0.5)
+#
+# end_time = time.monotonic()
+#
+# elapsed_time = end_time - start_time
+# print(f"Program finished in {elapsed_time:.2f} seconds")
+
+
+# import time
+#
+#
+# def calculate_it(func, *args):
+#     start_time = time.perf_counter()
+#     result = func(*args)
+#     end_time = time.perf_counter()
+#     elapsed_time = end_time - start_time
+#
+#     return print((result, elapsed_time))
+#
+#
+# def add(a, b, c):
+#     time.sleep(3)
+#     return a + b + c
+#
+#
+# calculate_it(add, 1, 2, 3)
+
+
+# import time
+#
+#
+# def add(a, b, c):
+#     time.sleep(2)
+#     return a + b + c
+#
+#
+# def add1(a, b, c):
+#     time.sleep(2)
+#     return a + b + c
+#
+#
+# def add2(a, b, c):
+#     time.sleep(1)
+#     return a + b + c
+#
+#
+# func_list = [add, add1, add2]
+#
+#
+# def get_the_fastest_func(funcs, *args):
+#     time_list = {}
+#     for func in funcs:
+#         start_time = time.perf_counter()
+#         func(*args)
+#         end_time = time.perf_counter()
+#         time_list[func.__name__] = end_time - start_time
+#
+#     return min(time_list, key=time_list.get)
+#
+#
+# fastest_func_name = get_the_fastest_func(func_list, 1, 2, 3)
+# print(f"The fastest function is {fastest_func_name}")
+
+
+# from math import factorial
+# import time
+#
+# start_time = time.perf_counter()
+# factorial(10)
+# end_time = time.perf_counter()
+#
+# print(f'modul math: {end_time - start_time}')
+#
+#
+# def factorial_recurrent(n):
+#     if n == 0:
+#         return 1
+#     return n * factorial_recurrent(n - 1)
+#
+#
+# start_time = time.perf_counter()
+# factorial_recurrent(10)
+# end_time = time.perf_counter()
+#
+# print(f'recurrent: {end_time - start_time}')
+#
+#
+# def factorial_classic(n):
+#     f = 1
+#     for i in range(2, n + 1):
+#         f *= i
+#     return f
+#
+#
+# start_time = time.perf_counter()
+# factorial_classic(10)
+# end_time = time.perf_counter()
+#
+# print(f'classic: {end_time - start_time}')
+
+
+# import time
+#
+#
+# def for_and_append():
+#     iterations = 10_000_000
+#     result = []
+#     for i in range(iterations):
+#         result.append(i + 1)
+#     return result
+#
+#
+# def list_comprehension():
+#     iterations = 10_000_000
+#     return [i + 1 for i in range(iterations)]
+#
+#
+# start_time = time.perf_counter()
+# for_and_append()
+# end_time = time.perf_counter()
+#
+# print(f'append: {end_time - start_time}')
+#
+# start_time = time.perf_counter()
+# list_comprehension()
+# end_time = time.perf_counter()
+#
+# print(f'list: {end_time - start_time}')
+
+
+# import time
+#
+# iterable = [i for i in range(10)]
+#
+#
+# def for_and_append(iterable):
+#     result = []
+#     for elem in iterable:
+#         result.append(elem)
+#     return result
+#
+#
+# def list_comprehension(iterable):
+#     return [elem for elem in iterable]
+#
+#
+# def list_function(iterable):
+#     return list(iterable)
+#
+#
+# def get_the_fastest_func(funcs, arg):
+#     time_list = {}
+#     for func in funcs:
+#         start_time = time.perf_counter()
+#         func(arg)
+#         end_time = time.perf_counter()
+#         time_list[func.__name__] = end_time - start_time
+#
+#     return min(time_list, key=time_list.get)
+#
+#
+# func_list = [for_and_append, list_comprehension]
+#
+# for i in range(10):
+#     print(get_the_fastest_func(func_list, iterable))

@@ -1190,3 +1190,136 @@
 #
 # for i in range(10):
 #     print(get_the_fastest_func(func_list, iterable))
+
+# import calendar
+# or can use
+
+
+# n = 3
+# list_month = [
+#     1999,
+#     2000,
+#     2001,
+#     2002
+# ]
+
+# list_month = [int(input()) for _ in range(int(input()))]
+
+# for i in list_month:
+#     print(calendar.isleap(i))
+
+# teacher solution
+# from calendar import isleap
+
+# for _ in range(int(input())):
+#     print(isleap(int(input())))
+
+# my solution
+# from calendar import month
+#
+# year, str_month = input().split(' ')
+#
+# months = {
+#     "Jan": 1,
+#     "Feb": 2,
+#     "Mar": 3,
+#     "Apr": 4,
+#     "May": 5,
+#     "Jun": 6,
+#     "Jul": 7,
+#     "Aug": 8,
+#     "Sep": 9,
+#     "Oct": 10,
+#     "Nov": 11,
+#     "Dec": 12
+# }
+#
+# num_month = months[str_month]
+#
+# print(month(int(year), num_month))
+
+# teacher solution
+
+# from calendar import prmonth
+# from datetime import datetime
+#
+# dt = datetime.strptime(input(), '%Y %b')
+#
+# print(dt.year, dt.month)
+
+# from datetime import datetime
+#
+# input_date = '2021-12-10'
+#
+# date_object = datetime.strptime(input_date, '%Y-%m-%d')
+# day_of_week = date_object.strftime('%A')
+#
+# print(day_of_week)
+
+# teacher solution
+
+# import calendar
+# from datetime import datetime
+#
+# dt = datetime.fromisoformat(input())
+#
+# print(list(calendar.day_name)[dt.weekday()])
+
+
+# import calendar
+#
+# # 2008 1
+# # 31
+#
+# year, month = input().split(' ')
+#
+# year_month = calendar.monthrange(int(year), int(month))
+# print(year_month[1])
+
+# my solution
+# import calendar
+# from datetime import datetime
+#
+# # 1983 January
+# # 31
+#
+# year, month = input().split(' ')
+#
+# str_month = datetime.strptime(month, '%B')
+#
+# digit_month = int(str_month.strftime('%m'))
+#
+# year_month = calendar.monthrange(int(year), digit_month)
+# print(year_month[1])
+
+
+# teacher solution
+# import calendar
+#
+# year, month = input().split()
+# month = list(calendar.month_name).index(month)
+#
+# print(calendar.monthrange(int(year), int(month))[1])
+
+
+# import calendar
+# import datetime
+#
+#
+# def find_third_thursdays(year):
+#     third_thursdays = []
+#     for month in range(1, 13):
+#         cal = calendar.monthcalendar(year, month)
+#         third_thursday = [week[calendar.THURSDAY] for week in cal if week[calendar.THURSDAY] != 0][2]
+#         date = datetime.date(year, month, third_thursday)
+#         third_thursdays.append(date)
+#
+#     sorted_third_thursdays = sorted(third_thursdays)
+#
+#     return sorted_third_thursdays
+#
+#
+# year = 2021
+# sorted_third_thursdays = find_third_thursdays(year)
+# for thursday in sorted_third_thursdays:
+#     print(thursday.strftime("%d.%m.%Y"))

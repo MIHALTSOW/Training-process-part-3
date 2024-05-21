@@ -496,3 +496,420 @@
 #     writer.writerow(header)
 #     for email, (username, dtime) in sorted_entries:
 #         writer.writerow([username, email, dtime])
+
+# import json
+#
+# lines = {
+#     True: 97,
+#     2: "I've been running for a reason",
+#     "3": ("I", "could", "never", "retain"),
+#     4: ["Sweet", "lips", "like", "pink", "lemonade"],
+#     5.0: "When he's feeling generous he's gonna give me a taste",
+#     "six": "10"
+# }
+#
+# lines_json = json.dumps(lines)
+#
+# lines = json.loads(lines_json)
+#
+# for key, velue in lines.items():
+#     print(f"{key} - {type(key)} / {velue} - {type(velue)}")
+
+
+# import json
+#
+# countries = {
+#     'Monaco': 'Monaco',
+#     'Iceland': 'Reykjavik',
+#     'Kenya': 'Nairobi',
+#     'Kazakhstan': 'Nur-Sultan',
+#     'Mali': 'Bamako',
+#     'Colombia': 'Bogota',
+#     'Finland': 'Helsinki',
+#     'Costa Rica': 'San Jose',
+#     'Cuba': 'Havana',
+#     'France': 'Paris',
+#     'Gabon': 'Libreville',
+#     'Liberia': 'Monrovia',
+#     'Angola': 'Luanda',
+#     'India': 'New Delhi',
+#     'Canada': 'Ottawa',
+#     'Australia': 'Canberra'
+# }
+#
+# line_json = json.dumps(countries, indent=3, sort_keys=True, separators=(',', ' - '))
+#
+# print(line_json)
+
+
+# import json
+#
+# words = {
+#     frozenset(["tap", "telephone"]): ("tæp", "telifəun"),
+#     "travel": "trævl",
+#     ("hello", "world"): ("həˈləʊ", "wɜːld"),
+#     "moonlight": "muːn.laɪt",
+#     "sunshine": "ˈsʌn.ʃaɪn",
+#     ("why", "is", "so", "difficult"): ("waɪ", "ɪz", "səʊ", "ˈdɪfɪkəlt"),
+#     "adventure": "ədˈventʃər",
+#     "beautiful": "ˈbjuːtɪfl",
+#     frozenset(["spoon", "block"]): ("spu:n", "blɔk"),
+#     "bicycle": "baisikl",
+#     ("pilot", "fly"): ("pailət", "flai")
+# }
+#
+# line_json = json.dumps(words, skipkeys=True, ensure_ascii=False)
+# print(line_json)
+
+
+# import json
+#
+# club1 = {
+#     "name": "FC Byern Munchen",
+#     "country": "Germany",
+#     "founded": 1900,
+#     "trainer": "Julian Nagelsmann",
+#     "goalkeeper": "M. Neuer",
+#     "league_position": 1
+# }
+#
+# club2 = {
+#     "name": "FC Barcelona",
+#     "country": "Spain",
+#     "founded": 1899,
+#     "trainer": "Xavier Creus",
+#     "goalkeeper": "M. Ter Stegen",
+#     "league_position": 7
+# }
+#
+# club3 = {
+#     "name": "FC Manchester United",
+#     "country": "England",
+#     "founded": 1878,
+#     "trainer": "Michael Carrick",
+#     "goalkeeper": "D. De Gea",
+#     "league_position": 8
+# }
+#
+# with open('data.json', 'w', encoding='utf-8') as json_file:
+#     json.dump([club1, club2, club3], json_file, indent=3)
+
+
+# import json
+#
+# specs = {
+#     'Модель': 'AMD Ryzen 5 5600G',
+#     'Год релиза': 2021,
+#     'Сокет': 'AM4',
+#     'Техпроцесс': '7 нм',
+#     'Ядро': 'Cezanne',
+#     'Объем кэша L2': '3 МБ',
+#     'Объем кэша L3': '16 МБ',
+#     'Базовая частота': '3900 МГц'
+# }
+#
+# specs_json = json.dumps(specs, ensure_ascii=False, indent=3)
+#
+# print(specs_json)
+
+
+# import json
+#
+#
+# def is_correct_json(string):
+#     try:
+#         json.loads(string)
+#     except json.JSONDecodeError:
+#         return False
+#     else:
+#         return True
+#
+#
+# print(is_correct_json('number = 17'))
+
+# my solution
+# import sys
+# import json
+#
+# input_data = sys.stdin.read().strip()
+#
+# dict_json = json.loads(input_data)
+#
+# for key, value in dict_json.items():
+#     if isinstance(value, list):
+#         value = ', '.join(str(val) for val in value)
+#     print(f"{key}: {value}")
+
+
+# import json
+#
+# # Открываем файл data.json и читаем данные
+# with open('data.json', 'r', encoding='utf-8') as file:
+#     data = json.load(file)
+#
+# # Создаем список для измененных данных
+# updated_data = []
+#
+# # Обрабатываем каждый объект из исходного списка
+# for obj in data:
+#     # print(type(obj))
+#     if isinstance(obj, str):
+#         updated_data.append(obj + '!')
+#     elif isinstance(obj, (int, float)):
+#         if obj is True:
+#             updated_data.append('false')
+#         elif obj is False:
+#             updated_data.append('true')
+#         else:
+#             updated_data.append(obj + 1)
+#     elif isinstance(obj, list):
+#         updated_data.append(obj * 2)
+#     elif isinstance(obj, dict):
+#         obj['newkey'] = None
+#         updated_data.append(obj)
+#     elif obj is None:
+#         continue
+#
+# with open('updated_data.json', 'w', encoding='utf-8') as file:
+#     json.dump(updated_data, file, ensure_ascii=False, indent=4)
+
+# import json
+#
+# with open('data1.json', 'r', encoding='utf-8') as json_file:
+#     first_file = json.load(json_file)
+#
+# with open('data2.json', 'r', encoding='utf-8') as json_file:
+#     second_file = json.load(json_file)
+#
+# first_dict = {}
+#
+# for key_first, value_first in first_file.items():
+#     first_dict[key_first] = value_first
+#
+# for key_second, value_second in second_file.items():
+#     first_dict[key_second] = value_second
+#
+# with open('data_merge.json', 'w', encoding='utf-8') as json_file:
+#     json.dump(first_dict, json_file, ensure_ascii=False, indent=4)
+
+# other variant
+# import json
+#
+# with open('data1.json', 'r', encoding='utf-8') as f1, open('data2.json', 'r', encoding='utf-8') as f2:
+#     json1, json2 = json.load(f1), json.load(f2)
+#     itog = json1 | json2
+#     with open('data_merge.json', 'w', encoding='utf-8') as f3:
+#         json.dump(itog, f3, ensure_ascii=False, indent=4)
+
+# import json
+#
+# with open('people.json', 'r', encoding='utf-8') as json_file:
+#     file_info = json.load(json_file)
+#
+# cnt_dict = {}
+
+# final_cnt = {
+#     'age': None,
+#     'country': None,
+#     'phone': None,
+#     'family_status': None,
+#     'email': None,
+#     'name': None,
+#     'children': None,
+#     'university': None
+# }
+
+# find all keys for max value
+# for item in file_info:
+#     cnt = 0
+#     for key in item:
+#         cnt += 1
+#         cnt_dict[key] = cnt
+# print(cnt_dict)
+
+# for item in file_info:
+#     if len(item) != 8:
+#         for key, value in final_cnt.items():
+#             if key not in item:
+#                 item[key] = None
+#
+# with open('updated_people.json', 'w', encoding='utf-8') as json_file:
+#     json.dump(file_info, json_file, ensure_ascii=False, indent=4)
+
+# print(len(item))
+
+# teacher solution
+
+# import json
+#
+# with open('people.json', encoding='uft-8') as js:
+#     content = json.load(js)
+#
+# keys = set()
+# for data in content:
+#     keys |= data.keys()
+#
+# for data in content:
+#     data |= dict.fromkeys(keys - data.keys())
+#
+# with open('updated_people.json', 'w') as js:
+#     json.dump(content, js, indent=3)
+
+# import json
+#
+# with open('countries.json', 'r', encoding='utf-8') as json_file:
+#     content = json.load(json_file)
+#
+#     dict_religion_country = {}
+#
+#     for data in content:
+#         if data['religion'] in dict_religion_country:
+#             dict_religion_country[data['religion']].append(data['country'])
+#         else:
+#             dict_religion_country[data['religion']] = [data['country']]
+#
+# with open('religion.json', 'w', encoding='utf-8') as json_file:
+#     json.dump(dict_religion_country, json_file, indent=3)
+#
+# # or we can use setdefault()
+#
+# import json
+#
+# with open('countries.json', 'r', encoding='utf-8') as json_file:
+#     content = json.load(json_file)
+#
+#     dict_religion_country = {}
+#
+#     for data in content:
+#         dict_religion_country.setdefault(data['religion'], []).append(data['country'])
+#
+# with open('religion.json', 'w', encoding='utf-8') as json_file:
+#     json.dump(dict_religion_country, json_file, indent=3)
+
+# import json
+# import csv
+#
+# addresses = {}
+#
+# with open('playgrounds.csv', 'r', encoding='utf-8') as csv_file:
+#     reader = csv.reader(csv_file, delimiter=';')
+#     header = next(reader)
+#
+#     for row in reader:
+#         object_name, adm_area, district, address = row
+#         if adm_area not in addresses:
+#             addresses[adm_area] = {}
+#
+#         if district not in addresses[adm_area]:
+#             addresses[adm_area][district] = []
+#
+#         addresses[adm_area][district].append(address)
+#
+# with open('addresses.json', 'w', encoding='utf-8') as json_file:
+#     json.dump(addresses, json_file, ensure_ascii=False, indent=3)
+
+# import json
+# import csv
+#
+# with open('students.json', 'r', encoding='utf-8') as json_file:
+#     content = json.load(json_file)
+#
+#     more_18_progress_more_75 = {}
+#
+#     for row in content:
+#         name, city, age, progress, phone = row['name'], row['city'], row['age'], row['progress'], row['phone']
+#         if progress >= 75 and age >= 18:
+#             more_18_progress_more_75[name] = phone
+#
+# more_18_progress_more_75_sort = sorted(more_18_progress_more_75.items(), key=lambda x: x[0])
+#
+# with open('data.csv', 'w', encoding='utf-8') as csv_file:
+#     writer = csv.writer(csv_file, delimiter=',')
+#     writer.writerow(['name', 'phone'])
+#     for name, phone in more_18_progress_more_75_sort:
+#         writer.writerow([name, phone])
+
+
+# my try, but it is not wor
+# import json
+# import datetime
+#
+# with open('pools.json', 'r', encoding='utf-8') as json_file:
+#     content = json.load(json_file)
+#
+#     working_hours = {}
+#
+#     for row in content:
+#         import pytz
+#
+#         tz_info = pytz.FixedOffset(-60)
+#         pool_time = datetime.datetime.strptime(row['WorkingHoursSummer']['Понедельник'][:-6], '%H:%M').time().replace(
+#             tzinfo=tz_info)
+#         if datetime.time(10, 0) <= pool_time <= datetime.time(12, 0) and row['DimensionsSummer']['Length'] == max(
+#                 row['DimensionsSummer']['Length'], row['DimensionsSummer']['Width']):
+#             working_hours[row['DimensionsSummer']['Length'], 'x', row['DimensionsSummer']['Width']] = row['Address']
+#
+# print(working_hours)
+
+# import json
+# from datetime import datetime
+#
+# # Чтение данных из файла pools.json
+# with open('pools.json', 'r', encoding='utf-8') as file:
+#     pools_data = json.load(file)
+#
+#
+# # Функция для проверки, подходит ли бассейн по времени
+# def is_pool_open_at_time(pool, time):
+#     open_time = datetime.strptime(pool['WorkingHoursSummer']['Понедельник'].split('-')[0], '%H:%M').time()
+#     close_time = datetime.strptime(pool['WorkingHoursSummer']['Понедельник'].split('-')[1], '%H:%M').time()
+#     return open_time <= time <= close_time
+#
+#
+# # Находим подходящий бассейн
+# suitable_pool = None
+# max_length = 0
+# max_width = 0
+#
+# for pool in pools_data:
+#     if is_pool_open_at_time(pool, datetime.strptime('10:00', '%H:%M').time()):
+#         if pool['DimensionsSummer']['Length'] > max_length or (
+#                 pool['DimensionsSummer']['Length'] == max_length and pool['DimensionsSummer']['Width'] > max_width):
+#             max_length = pool['DimensionsSummer']['Length']
+#             max_width = pool['DimensionsSummer']['Width']
+#             suitable_pool = pool
+#
+# # Выводим размеры и адрес подходящего бассейна
+# if suitable_pool:
+#     print(f"{max_length}x{max_width}")
+#     print(suitable_pool['Address'])
+
+
+# import json
+#
+# with open('food_services.json', 'r', encoding='utf-8') as json_file:
+#     content = json.load(json_file)
+#
+#     max_cafe_district = {}
+#     max_cafe_in_network = {}
+#
+#     for row in content:
+#         district = row['District']
+#         name_company = row['OperatingCompany']
+#
+#         if district in max_cafe_district:
+#             max_cafe_district[district] += 1
+#         else:
+#             max_cafe_district[district] = 1
+#
+#         if name_company and row['IsNetObject'] == 'да':
+#             if name_company in max_cafe_in_network:
+#                 max_cafe_in_network[name_company] += 1
+#             else:
+#                 max_cafe_in_network[name_company] = 1
+#
+#     max_district = max(max_cafe_district.items(), key=lambda x: x[1])
+#     max_network = max(max_cafe_in_network.items(), key=lambda x: x[1])
+#
+#     print(f"{max_district[0]}: {max_district[1]}")
+#     print(f"{max_network[0]}: {max_network[1]}")

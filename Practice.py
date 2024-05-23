@@ -1097,3 +1097,62 @@
 #         else:
 #             for arg in args:
 #                 zip_file.extract(arg)
+
+# import pickle
+# import sys
+#
+# # Считываем название pickle файла
+# pickle_file = input().strip()
+#
+# # Загружаем функцию из pickle файла
+# with open(pickle_file, 'rb') as file:
+#     loaded_func = pickle.load(file)
+#
+# # Считываем аргументы для функции из потокового ввода
+# args = [line.strip() for line in sys.stdin]
+#
+# # Вызываем загруженную функцию с аргументами
+# result = loaded_func(*args)
+#
+# # Выводим результат
+# print(result)
+
+# import pickle
+#
+#
+# def filter_dump(filename, objects, typename):
+#     filtered_objects = [obj for obj in objects if isinstance(obj, typename)]
+#     with open(filename, 'wb') as file:
+#         pickle.dump(filtered_objects, file)
+
+# import pickle
+#
+# # Считываем название pickle файла и целое число
+# pickle_file = input().strip()
+# checksum = int(input().strip())
+#
+# # Загружаем объект из pickle файла
+# with open(pickle_file, 'rb') as file:
+#     data = pickle.load(file)
+#
+# # Вычисляем контрольную сумму в соответствии с правилами
+# if isinstance(data, dict):
+#     keys_sum = sum(key for key in data.keys() if isinstance(key, int))
+#     if keys_sum == checksum:
+#         print("Контрольные суммы совпадают")
+#     else:
+#         print("Контрольные суммы не совпадают")
+# elif isinstance(data, list):
+#     int_elements = [elem for elem in data if isinstance(elem, int)]
+#     if len(int_elements) >= 2:
+#         min_elem = min(int_elements)
+#         max_elem = max(int_elements)
+#         checksum_calc = min_elem * max_elem
+#     else:
+#         checksum_calc = 0
+#     if checksum_calc == checksum:
+#         print("Контрольные суммы совпадают")
+#     else:
+#         print("Контрольные суммы не совпадают")
+# else:
+#     print("Объект в pickle файле не является словарем или списком с целочисленными элементами")

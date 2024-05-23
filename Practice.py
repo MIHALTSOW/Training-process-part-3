@@ -913,3 +913,187 @@
 #
 #     print(f"{max_district[0]}: {max_district[1]}")
 #     print(f"{max_network[0]}: {max_network[1]}")
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     zip_file.printdir()
+
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     info = zip_file.infolist()
+#     print(info[6].file_size)
+#     print(info[6].compress_size)
+#     print(info[6].filename)
+#     print(info[6].date_time)
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     info = zip_file.infolist()
+#     print(info[0].is_dir())
+#     print(info[6].is_dir())
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     info = zip_file.namelist()
+#     print(*info, sep='\n')
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     info = zip_file.namelist()
+#     last_file = zip_file.getinfo(info[-4])
+#     print(last_file.file_size)
+#     print(last_file.compress_size)
+#     print(last_file.filename)
+#     print(last_file.date_time)
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     with zip_file.open('test/Разные файлы/astros.json') as file:
+#         print(file.read())
+
+# my solution
+# from zipfile import ZipFile
+#
+# with ZipFile('workbook.zip') as zip_file:
+#     info = zip_file.namelist()
+#
+#     cnt = 0
+#     for i in info:
+#         if i[-1] != '/':
+#             cnt += 1
+#
+# print(cnt)
+
+# from zipfile import ZipFile
+#
+# with ZipFile('workbook.zip') as zip_file:
+#     info = zip_file.infolist()
+#
+#     file_count = 0
+#     for item in info:
+#         if not item.is_dir():    # проверяем папка или нет
+#             file_count += 1
+#
+# print(file_count)
+
+# from zipfile import ZipFile
+#
+# with ZipFile('test.zip') as zip_file:
+#     info = zip_file.infolist()
+#
+#     cnt_file = 0
+#     cnt_compress = 0
+#     for i in info:
+#         cnt_file += i.file_size
+#         cnt_compress += i.compress_size
+#
+# print(f"Объем исходных файлов: {cnt_file} байт(а)")
+# print(f"Объем сжатых файлов: {cnt_compress} байт(а)")
+
+# from zipfile import ZipFile
+#
+# with ZipFile('workbook.zip') as zip_file:
+#     info = zip_file.infolist()
+#
+#     compression_ratio = {i: (i.compress_size / i.file_size) * 100 for i in info if i.file_size != 0}
+#     min_file = min(compression_ratio, key=compression_ratio.get)
+#     print(min_file.filename.split('/')[-1])
+
+# from zipfile import ZipFile
+# from datetime import datetime
+#
+# with ZipFile('workbook.zip') as zip_file:
+#     info = zip_file.infolist()
+#
+#     date = datetime.strptime('2021-11-30 14:22:00', '%Y-%m-%d %H:%M:%S')
+#
+#     dates_more_now_date = []
+#
+#     for i in info:
+#         date_time_str = ' '.join(map(str, i.date_time))
+#         now_date = datetime.strptime(date_time_str, '%Y %m %d %H %M %S')
+#
+#         if now_date > date:
+#             dates_more_now_date.append(i.filename)
+#
+#     sort_dates_more_now_date = sorted(dates_more_now_date, key=lambda x: x.split('/')[-1])
+#
+#     for i in sort_dates_more_now_date:
+#         if i.split('/')[-1] != '':
+#             print(i.split('/')[-1])
+
+# from zipfile import ZipFile
+# from datetime import datetime
+#
+# with ZipFile('workbook.zip') as zip_file:
+#     info = zip_file.infolist()
+#     print(len(info))
+#
+#     sort_info = sorted(info, key=lambda x: x.filename.split('/')[-1])
+#
+#     cnt = 0
+#     for i in sort_info:
+#         cnt += 1
+#         if i.filename.split('/')[-1] != '':
+#             print(i.filename.split('/')[-1])
+#
+#             date = datetime(*i.date_time).strftime('%Y-%m-%d %H:%M:%S')
+#             print(f"  Дата модификации файла: {date}")
+#
+#             print(f"  Размер исходного файла: {i.file_size} байт(а)")
+#             print(f"  Размер сжатого файла: {i.compress_size} байт(а)")
+#             if cnt != 25:
+#                 print()
+
+# from zipfile import ZipFile
+#
+# file_names = [
+#     'how to prove.pdf', 'fipi_demo_2022.pdf',
+#     'Hollow Knight Silksong.exe',
+#     'code.jpeg', 'stepik.png', 'readme.txt',
+#     'shopping_list.txt',
+#     'Alexandra Savior – Crying All the Time.mp3',
+#     'homework.py', 'test.py'
+# ]
+#
+# with ZipFile('files.zip', 'w') as zip_file:
+#     for file_name in file_names:
+#         zip_file.write(file_name)
+
+# from zipfile import ZipFile
+# import os.path
+#
+# file_names = [
+#     'how to prove.pdf',
+#     'fipi_demo_2022.pdf',
+#     'Hollow Knight Silksong.exe',
+#     'code.jpeg',
+#     'stepik.png',
+#     'readme.txt',
+#     'shopping_list.txt',
+#     'Alexandra Savior – Crying All the Time.mp3',
+#     'homework.py', 'test.py'
+# ]
+#
+# with ZipFile('files.zip', 'w') as zip_file:
+#     for file_name in file_names:
+#         if os.path.getsize(file_name) <= 100:
+#             zip_file.write(file_name)
+
+# import zipfile
+#
+#
+# def extract_this(zip_name, *args):
+#     with zipfile.ZipFile(zip_name) as zip_file:
+#         if not args:
+#             zip_file.extractall()
+#         else:
+#             for arg in args:
+#                 zip_file.extract(arg)

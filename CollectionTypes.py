@@ -164,3 +164,296 @@
 # meetings.sort(key=lambda item: datetime.strptime(f"{item.meeting_date} {item.meeting_time}", "%d.%m.%Y %H:%M"))
 # for meeting in meetings:
 #     print(meeting.surname, meeting.name)
+
+
+# from collections import namedtuple
+#
+# Party = namedtuple('Party', 'name date time')
+#
+# party = Party(name='Jack', date='01.01.2020', time='10:00')
+#
+# print(party[0])
+# print(party.name)
+# print(party[1])
+# print(party.date)
+
+# from collections import defaultdict
+#
+# info = defaultdict(int)
+#
+# info['name'] = 'Timur'
+# info['age'] = 29
+# info['job'] = 'Teacher'
+#
+# print(info['salary'])
+# print(info)
+
+# from collections import defaultdict
+#
+# info = defaultdict(int, {'name': 'Timur', 'age': 29, 'job': 'Teacher'})
+#
+# print(info['name'])
+# print(info['salary'])
+# print(info)
+
+# from collections import defaultdict
+#
+# info1 = defaultdict(int, name='Timur', age=29, job='Teacher')
+# info2 = defaultdict(int, [('name', 'Timur'), ('age', 29), ('job', 'Teacher')])
+#
+# print(info1)
+# print(info2)
+
+# from collections import defaultdict
+# a = defaultdict.fromkeys(['name', 'surname', 'hobby'], None)
+#
+# print(type(a))
+
+
+# from collections import defaultdict
+#
+# data = data = [
+#     ('Books', 1343),
+#     ('Books', 1166),
+#     ('Merch', 616),
+#     ('Courses', 966),
+#     ('Merch', 1145),
+#     ('Courses', 1061),
+#     ('Books', 848),
+#     ('Courses', 964),
+#     ('Tutorials', 832),
+#     ('Merch', 642),
+#     ('Books', 815),
+#     ('Tutorials', 1041),
+#     ('Books', 1218),
+#     ('Tutorials', 880),
+#     ('Books', 1003),
+#     ('Merch', 951),
+#     ('Books', 920),
+#     ('Merch', 729),
+#     ('Tutorials', 977),
+#     ('Books', 656)
+# ]
+#
+# total_value = defaultdict(int)
+#
+# for i in data:
+#     name, value = i
+#     total_value[name] += value
+#
+# for key, value in sorted(total_value.items(), key=lambda x: x):
+#     print(f"{key}: ${value}")
+
+# from collections import defaultdict
+#
+# staff = [
+#     ('Sales', 'Robert Barnes'),
+#     ('Developing', 'Thomas Porter'),
+#     ('Accounting', 'James Wilkins'),
+#     ('Sales', 'Connie Reid'),
+#     ('Accounting', 'Brenda Davis'),
+#     ('Developing', 'Miguel Norris'),
+#     ('Accounting', 'Linda Hudson'),
+#     ('Developing', 'Deborah George'),
+#     ('Developing', 'Nicole Watts'),
+#     ('Marketing', 'Billy Lloyd'),
+#     ('Sales', 'Charlotte Cox'),
+#     ('Marketing', 'Bernice Ramos'),
+#     ('Sales', 'Jose Taylor'),
+#     ('Sales', 'Katie Warner'),
+#     ('Accounting', 'Steven Diaz'),
+#     ('Accounting', 'Kimberly Reynolds'),
+#     ('Accounting', 'John Watts'),
+#     ('Accounting', 'Dale Houston'),
+#     ('Developing', 'Arlene Gibson'),
+#     ('Marketing', 'Joyce Lawrence'),
+#     ('Accounting', 'Rosemary Garcia'),
+#     ('Marketing', 'Ralph Morgan'),
+#     ('Marketing', 'Sam Davis'),
+#     ('Marketing', 'Gail Hill'),
+#     ('Accounting', 'Michelle Wright'),
+#     ('Accounting', 'Casey Jenkins'),
+#     ('Sales', 'Evelyn Martin'),
+#     ('Accounting', 'Aaron Ferguson'),
+#     ('Marketing', 'Andrew Clark'),
+#     ('Marketing', 'John Gonzalez'),
+#     ('Developing', 'Wilma Woods'),
+#     ('Sales', 'Marie Cooper'),
+#     ('Accounting', 'Kay Scott'),
+#     ('Sales', 'Gladys Taylor'),
+#     ('Accounting', 'Ann Bell'),
+#     ('Accounting', 'Craig Wood'),
+#     ('Accounting', 'Gloria Higgins'),
+#     ('Marketing', 'Mario Reynolds'),
+#     ('Marketing', 'Helen Taylor'),
+#     ('Marketing', 'Mary King'),
+#     ('Accounting', 'Jane Jackson'),
+#     ('Marketing', 'Carol Peters'),
+#     ('Sales', 'Alicia Mendoza'),
+#     ('Accounting', 'Edna Cunningham'),
+#     ('Developing', 'Joyce Rivera'),
+#     ('Sales', 'Joseph Lee'),
+#     ('Sales', 'John White'),
+#     ('Marketing', 'Charles Bailey'),
+#     ('Sales', 'Chester Fernandez'),
+#     ('Sales', 'John Washington')
+# ]
+#
+# cnt_office = defaultdict(int)
+#
+# for i in staff:
+#     office, name = i
+#     cnt_office[office] += 1
+#
+# for office, name in sorted(cnt_office.items(), key=lambda x: x):
+#     print(f"{office}: {name}")
+
+
+# from collections import defaultdict
+#
+# staff_broken = [
+#     ('Developing', 'Miguel Norris'),
+#     ('Sales', 'Connie Reid'),
+#     ('Sales', 'Joseph Lee'),
+#     ('Marketing', 'Carol Peters'),
+#     ('Accounting', 'Linda Hudson'),
+#     ('Accounting', 'Ann Bell'),
+#     ('Marketing', 'Ralph Morgan'),
+#     ('Accounting', 'Gloria Higgins'),
+#     ('Developing', 'Wilma Woods'),
+#     ('Developing', 'Wilma Woods'),
+#     ('Marketing', 'Bernice Ramos'),
+#     ('Marketing', 'Joyce Lawrence'),
+#     ('Accounting', 'Craig Wood'),
+#     ('Developing', 'Nicole Watts'),
+#     ('Sales', 'Jose Taylor'),
+#     ('Accounting', 'Linda Hudson'),
+#     ('Accounting', 'Edna Cunningham'),
+#     ('Sales', 'Jose Taylor'),
+#     ('Marketing', 'Helen Taylor'),
+#     ('Accounting', 'Kimberly Reynolds'),
+#     ('Marketing', 'Mary King'),
+#     ('Sales', 'Joseph Lee'),
+#     ('Accounting', 'Gloria Higgins'),
+#     ('Marketing', 'Andrew Clark'),
+#     ('Accounting', 'John Watts'),
+#     ('Accounting', 'Rosemary Garcia'),
+#     ('Accounting', 'Steven Diaz'),
+#     ('Marketing', 'Mary King'),
+#     ('Sales', 'Gladys Taylor'),
+#     ('Developing', 'Thomas Porter'),
+#     ('Accounting', 'Brenda Davis'),
+#     ('Sales', 'Connie Reid'),
+#     ('Sales', 'Alicia Mendoza'),
+#     ('Marketing', 'Mario Reynolds'),
+#     ('Sales', 'John White'),
+#     ('Developing', 'Joyce Rivera'),
+#     ('Accounting', 'Steven Diaz'),
+#     ('Developing', 'Arlene Gibson'),
+#     ('Sales', 'Robert Barnes'),
+#     ('Sales', 'Charlotte Cox'),
+#     ('Accounting', 'Craig Wood'),
+#     ('Marketing', 'Carol Peters'),
+#     ('Marketing', 'Ralph Morgan'),
+#     ('Accounting', 'Kay Scott'),
+#     ('Sales', 'Evelyn Martin'),
+#     ('Marketing', 'Billy Lloyd'),
+#     ('Sales', 'Gladys Taylor'),
+#     ('Developing', 'Deborah George'),
+#     ('Sales', 'Charlotte Cox'),
+#     ('Marketing', 'Sam Davis'),
+#     ('Sales', 'John White'),
+#     ('Sales', 'Marie Cooper'),
+#     ('Marketing', 'John Gonzalez'),
+#     ('Sales', 'John Washington'),
+#     ('Sales', 'Chester Fernandez'),
+#     ('Sales', 'Alicia Mendoza'),
+#     ('Sales', 'Katie Warner'),
+#     ('Accounting', 'Jane Jackson'),
+#     ('Sales', 'Chester Fernandez'),
+#     ('Marketing', 'Charles Bailey'),
+#     ('Marketing', 'Gail Hill'),
+#     ('Accounting', 'Casey Jenkins'),
+#     ('Accounting', 'James Wilkins'),
+#     ('Accounting', 'Casey Jenkins'),
+#     ('Marketing', 'Mario Reynolds'),
+#     ('Accounting', 'Aaron Ferguson'),
+#     ('Accounting', 'Kimberly Reynolds'),
+#     ('Sales', 'Robert Barnes'),
+#     ('Accounting', 'Aaron Ferguson'),
+#     ('Accounting', 'Jane Jackson'),
+#     ('Developing', 'Deborah George'),
+#     ('Accounting', 'Michelle Wright'),
+#     ('Accounting', 'Dale Houston')
+# ]
+
+# my solution
+# colleagues = defaultdict(set)
+#
+# for i in staff_broken:
+#     office, name = i
+#     colleagues[office].add(name)
+#     # if (name,) not in colleagues:
+#     #     colleagues[office] += (name,)
+#
+#
+# for key, value in sorted(colleagues.items(), key=lambda x: x[0]):
+#     print(key, sep='', end=': '), print(*sorted(value), sep=', ')
+
+# teacher solution
+# departments = defaultdict(set)
+#
+# for department, employee in staff_broken:
+#     departments[department].add(employee)
+#
+# for department in sorted(departments):
+#     staff = sorted(list(departments[department]))
+#     print(f'{department}: {", ".join(staff)}')
+
+# from collections import defaultdict
+#
+#
+# def wins(pairs):
+#     result = defaultdict(set)
+#     for winner, loser in pairs:
+#         result[winner].add(loser)
+#     return result
+#
+#
+# result = wins([('Тимур', 'Артур'), ('Тимур', 'Дима'), ('Дима', 'Артур')])
+#
+# for winner, losers in sorted(result.items()):
+#     print(winner, '->', *sorted(losers))
+
+# from collections import defaultdict
+#
+#
+# def flip_dict(dict_of_lists):
+#     fip_dict = defaultdict(list)
+#     for key, value in dict_of_lists.items():
+#         for i in value:
+#             fip_dict[i].append(key)
+#
+#     return fip_dict
+#
+#
+# print(flip_dict({'a': [1, 2], 'b': [3, 1], 'c': [2]}))
+
+# from collections import defaultdict
+
+# def best_sender(messages, senders):
+#     result = defaultdict(int)
+#     for message, sender in zip(messages, senders):
+#         result[sender] += len(message)
+#     max_value = max(result.values())
+#     for k, v in result.items():
+#         if v == max_value:
+#             return k
+# return [k for k, v in result.items() if v == max_value]
+
+
+# messages = ['Hi, Linda', 'Hi, Sam', 'How are you doing?']
+# senders = ['Sam Fisher', 'Linda', 'Sam Fisher']
+#
+# print(best_sender(messages, senders))
+

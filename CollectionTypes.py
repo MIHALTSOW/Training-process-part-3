@@ -457,3 +457,179 @@
 #
 # print(best_sender(messages, senders))
 
+# from collections import OrderedDict
+#
+# data = OrderedDict(
+#     {'Name': 'Брусника',
+#      'IsNetObject': 'да',
+#      'OperatingCompany': 'Брусника',
+#      'TypeObject': 'кафе',
+#      'AdmArea': 'Центральный административный округ',
+#      'District': 'район Арбат',
+#      'Address': 'город Москва, переулок Сивцев Вражек, дом 6/2',
+#      'SeatsCount': '10'}
+# )
+#
+# print(OrderedDict(reversed(data.items())))
+
+# from collections import OrderedDict
+#
+# data = OrderedDict(
+#  {'Name': 'Брусника',
+#   'IsNetObject': 'да',
+#   'OperatingCompany': 'Брусника',
+#   'TypeObject': 'кафе',
+#   'AdmArea': 'Центральный административный округ',
+#   'District': 'район Арбат',
+#   'Address': 'город Москва, переулок Сивцев Вражек, дом 6/2',
+#   'SeatsCount': '10'}
+# )
+#
+# new_grades = OrderedDict()
+#
+# for rule in (False, True, False, True, False, True, False, True):
+#     key, value = data.popitem(last=rule)
+#     new_grades[key] = value
+#
+# print(OrderedDict(new_grades))
+
+# from collections import Counter
+#
+# files = [
+#     'emoji_smile.jpeg',
+#     'city-of-the-sun.mp3',
+#     'dhook_hw.json',
+#     'sample.xml',
+#     'teamspeak3.exe',
+#     'project_module3.py',
+#     'math_lesson3.mp4',
+#     'old_memories.mp4',
+#     'spiritfarer.exe',
+#     'backups.json',
+#     'python_for_beg1.mp4',
+#     'emoji_angry.jpeg',
+#     'exam_results.csv',
+#     'project_main.py',
+#     'classes.csv',
+#     'plants.xml',
+#     'cant-help-myself.mp3',
+#     'microsoft_edge.exe',
+#     'steam.exe',
+#     'math_lesson4.mp4',
+#     'city.jpeg',
+#     'bad-disease.mp3',
+#     'beauty.jpeg',
+#     'hollow_knight_silksong.exe',
+#     'whatsapp.exe',
+#     'photoshop.exe',
+#     'telegram.exe',
+#     'yandex_browser.exe',
+#     'math_lesson7.mp4',
+#     'students.csv',
+#     'emojis.zip',
+#     '7z.zip',
+#     'bones.mp3',
+#     'python3.zip',
+#     'dhook_lsns.json',
+#     'carl_backups.json',
+#     'forest.jpeg',
+#     'python_for_pro8.mp4',
+#     'yandexdisc.exe',
+#     'but-you.mp3',
+#     'project_module1.py',
+#     'nothing.xml',
+#     'flowers.jpeg',
+#     'grades.csv',
+#     'nvidia_gf.exe',
+#     'small_txt.zip',
+#     'project_module2.py',
+#     'tab.csv',
+#     'note.xml',
+#     'sony_vegas11.exe',
+#     'friends.jpeg',
+#     'data.pkl'
+# ]
+#
+# total = Counter([file.split('.')[1] for file in files])
+#
+# for i in sorted(total):
+#     print(f"{i}: {total[i]}")
+
+# from collections import Counter
+#
+#
+# def count_occurences(word, words):
+#     return Counter(words.lower().split()).get(word.lower(), 0)
+#
+#
+# # word = 'python'
+# # words = 'Python Conferences python training python events'
+#
+# word = 'Se'
+# words = 'se sdsf sds SE sdfsdg Se dhgf gfd asd se'
+#
+#
+# print(count_occurences(word, words))
+
+
+# from collections import Counter
+#
+# total_sales = Counter([i for i in input().split(',')])
+#
+# for sales, cnt in sorted(total_sales.items()):
+#     print(f"{sales}: {cnt}")
+
+
+# ascii_value = ord('р')
+#
+# print(ascii_value)
+
+# from collections import Counter
+#
+#
+# def ascii_value(word):
+#     return sum(ord(i) for i in word if i != ' ')
+#
+#
+# sales = [(i, ascii_value(i)) for i in input().split(',')]
+#
+# max_len = max(len(i[0]) for i in sales)
+#
+# total_sales = Counter(sales)
+#
+# for sales, cnt in sorted(total_sales.items()):
+#     if len(sales[0]) == max_len:
+#         print(f"{sales[0]}: {sales[1]} UC x {cnt} = {sales[1] * cnt} UC")
+#     else:
+#         average_len = max_len - len(sales[0])
+#         print(sales[0] + ' ' * average_len + f": {sales[1]} UC x {cnt} = {sales[1] * cnt} UC")
+
+# also we can use ljust() and rjust()
+
+
+# my solution
+# from collections import Counter
+#
+# with open('pythonzen.txt', encoding='utf-8') as txt_file:
+#     text = txt_file.readlines()
+#
+#     all_words = []
+#
+#     for i in sorted(text):
+#         new_text = ''.join(i.lower().split())
+#         for j in new_text:
+#             if j.isalpha():
+#                 all_words.append(j)
+#
+#     total = Counter(all_words)
+#
+#     for i in sorted(total):
+#         print(f"{i}: {total[i]}")
+
+
+# teacher solution
+# from collections import Counter
+#
+# with open('pythonzen.txt', encoding='utf-8') as file:
+#     counter = Counter(c for c in file.read().lower() if c.isalpha())
+#     [print(f'{k}: {counter[k]}') for k in sorted(counter)]

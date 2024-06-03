@@ -633,3 +633,240 @@
 # with open('pythonzen.txt', encoding='utf-8') as file:
 #     counter = Counter(c for c in file.read().lower() if c.isalpha())
 #     [print(f'{k}: {counter[k]}') for k in sorted(counter)]
+
+
+# from collections import Counter
+#
+# string_input = [i for i in input().lower().split()]
+#
+# print(Counter(string_input).most_common(1)[0][0])
+
+
+# from collections import Counter
+#
+# string_input = [i for i in input().lower().split()]
+#
+# min_value = min(Counter(string_input).values())
+#
+# list_words = []
+# for key, value in sorted(Counter(string_input).items()):
+#     if value == min_value:
+#         list_words.append(key)
+#
+# print(*list_words, sep=', ')
+
+
+# from collections import Counter
+#
+# string_input = [i for i in input().lower().split()]
+#
+# most_common_word = []
+#
+# for key, value in sorted(Counter(string_input).items()):
+#     if value == Counter(string_input).most_common(1)[0][1]:
+#         most_common_word.append(key)
+#
+# if len(sorted(most_common_word)) > 1:
+#     print(sorted(most_common_word)[-1])
+# else:
+#     print(*most_common_word)
+
+
+# from collections import Counter, defaultdict
+#
+# string_input = [i.lower() for i in input().lower().split()]
+#
+# len_word_cnt = defaultdict(int)
+#
+# for key, value in Counter(string_input).items():
+#     len_word_cnt[len(key)] += value
+#
+# for key, value in sorted(len_word_cnt.items(), key=lambda x: x[1]):
+#     print(f"{key}: {value}")
+
+# from collections import Counter
+# import sys
+
+# input_data = sys.stdin.read().split('\n')
+#
+# dic = {}
+#
+# for i in input_data:
+#     key, value = i.split()
+#     dic[key] = int(value)
+#
+# print(sorted(dic.items(), key=lambda x: x[1], reverse=True)[-2][0])
+
+
+# from collections import Counter, namedtuple
+# import csv
+#
+# Person = namedtuple('Person', 'username, email, dtime')
+#
+# with open('name_log.csv', encoding='utf-8') as file:
+#     file_info = csv.reader(file)
+#     next(file_info)
+#
+#     file_rename = Counter(i[1] for i in file_info)
+#
+#     for name, cnt in sorted(file_rename.items()):
+#         print(f"{name}: {cnt}")
+
+
+# from collections import Counter
+#
+# def scrabble(symbols, word):
+#     symbol_in_word = Counter(word.lower())
+#     repeat_symbols = Counter(symbols.lower())
+#     if symbol_in_word - repeat_symbols == {}:
+#         return True
+#     else:
+#         return False
+#
+#
+# print(scrabble('bbbbbeeeeegggggggeeeeeekkkkk', 'Beegeek'))
+# print(scrabble('begk', 'beegeek'))
+# print(scrabble('beegeek', 'beegeek'))
+
+# from collections import Counter
+#
+#
+# def print_bar_chart(data, mark):
+#     bar = Counter(data)
+#     max_len = len(max(bar, key=lambda x: len(x)))
+#
+#     for i in sorted(bar, key=lambda x: bar[x], reverse=True):
+#         if len(i) != max_len:
+#             print(f"{i}{' ' * (max_len - len(i))} |{bar[i] * mark}")
+#         else:
+#             print(f"{i} |{bar[i] * mark}")
+
+
+# print_bar_chart('beegeek', '+')
+
+# languages = ['java', 'java', 'python', 'C++', 'assembler', 'java', 'C++', 'C', 'pascal', 'C++', 'pascal', 'java']
+# print_bar_chart(languages, '#')
+
+# my solution
+# from collections import Counter, namedtuple, defaultdict
+# import csv
+# import json
+#
+# Vegetables = namedtuple('vegetables', 'name cntJanuary cntFebruary cntMarch')
+#
+# with open('quarter1.csv', encoding='utf-8') as first_file:
+#     with open('quarter2.csv', encoding='utf-8') as second_file:
+#         with open('quarter3.csv', encoding='utf-8') as third_file:
+#             with open('quarter4.csv', encoding='utf-8') as fourth_file:
+#                 first_file = csv.reader(first_file)
+#                 second_file = csv.reader(second_file)
+#                 third_file = csv.reader(third_file)
+#                 fourth_file = csv.reader(fourth_file)
+#
+#                 next(first_file)
+#                 next(second_file)
+#                 next(third_file)
+#                 next(fourth_file)
+#
+#                 first_file = list(first_file)
+#                 second_file = list(second_file)
+#                 third_file = list(third_file)
+#                 fourth_file = list(fourth_file)
+#
+#                 quarter = first_file + second_file + third_file + fourth_file
+#
+# with open('prices.json', encoding='utf-8') as five_file:
+#     json_file = json.load(five_file)
+#
+# dic_price = dict(json_file)
+#
+#
+# sum_dic = defaultdict(int)
+#
+# for i in quarter:
+#     sales = Vegetables(i[0], int(i[1]), int(i[2]), int(i[3]))
+#     sum_cnt = sales.cntJanuary + sales.cntFebruary + sales.cntMarch
+#     sum_dic[sales.name] += sum_cnt
+#
+# total_dict = {}
+#
+# for name, price in sum_dic.items():
+#     if name in dic_price:
+#         total_dict[name] = price * dic_price[name]
+#     else:
+#         total_dict[name] = price
+#
+# total = 0
+# for key, value in total_dict.items():
+#     total += value
+#
+# print(total)
+
+# import json
+#
+# with open('zoo.json', encoding='utf-8') as file:
+#     zoo_data = json.load(file)
+#
+# total_animals = sum(animal_count for animal_counts in zoo_data for animal_count in animal_counts.values())
+#
+# print(total_animals)
+
+
+# import json
+# from collections import ChainMap
+#
+# with open('zoo.json', encoding='utf-8') as js:
+#     animals = ChainMap(*json.load(js))
+#
+# print(sum(animals.values()))
+
+# from collections import ChainMap, Counter
+#
+# bread = {
+#     'булочка с кунжутом': 15,
+#     'обычная булочка': 10,
+#     'ржаная булочка': 15
+# }
+#
+# meat = {
+#     'куриный бифштекс': 50,
+#     'говяжий бифштекс': 70,
+#     'рыбный бифштекс': 40
+# }
+#
+# sauce = {
+#     'сливочно-чесночный': 15,
+#     'кетчуп': 10,
+#     'горчица': 10,
+#     'барбекю': 15,
+#     'чили': 15
+# }
+#
+# vegetables = {
+#     'лук': 10,
+#     'салат': 15,
+#     'помидор': 15,
+#     'огурцы': 10
+# }
+#
+# toppings = {
+#     'сыр': 25,
+#     'яйцо': 15,
+#     'бекон': 30
+# }
+#
+# priceList = ChainMap(bread, meat, sauce, vegetables, toppings)
+#
+# total_sum = 0
+# order = input().split(',')
+# listOrder = Counter(order)
+#
+# lenSpace = (len(max(listOrder, key=listOrder.get)))
+#
+# for key, value in sorted(listOrder.items()):
+#     if key in priceList:
+#         print(f"{key}{' ' * (lenSpace - len(key))} x {value}")
+#         total_sum += priceList[key] * value
+#
+# print('-' * (lenSpace + 6))
+# print(f"Итог: {total_sum}р")

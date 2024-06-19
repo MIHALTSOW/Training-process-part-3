@@ -406,3 +406,304 @@
 # numbers = [1, 2, 3, 4, 5]
 #
 # print(*around(numbers))
+
+# def is_iterable(obj):
+#     try:
+#         iter(obj)
+#         return True
+#     except TypeError:
+#         return False
+#
+#
+# print(is_iterable(18731))
+
+# def is_iterator(obj):
+#     try:
+#         next(obj)
+#         return True
+#     except StopIteration:
+#         return False
+#
+#
+# print(is_iterator([1, 2, 3, 4, 5]))
+#
+# beegeek = map(str.upper, 'beegeek')
+#
+# print(is_iterator(beegeek))
+
+# from itertools import count
+
+
+# def tabulate(func):
+#     count = 1
+#     while True:
+#         yield func(count)
+#         count += 1
+
+# def tabulate(func):
+#     for i in count(1):
+#         yield func(i)
+#
+#
+# func = lambda x: x
+# values = tabulate(func)
+#
+# print(next(values))
+# print(next(values))
+
+
+# def factorials(n):
+#     for i in count(1):
+#         yield i
+#         if i == n:
+#             break
+
+# KILL THE PC
+# from itertools import accumulate, count
+#
+#
+# def factorials(n):
+#     return accumulate(count(1), lambda x, y: x * y, initial=1)
+#
+#
+# numbers = factorials(6)
+#
+# print(*numbers)
+
+# from itertools import count, accumulate
+#
+#
+# def factorials(n):
+#     return accumulate([i for i in range(1, n + 1)], lambda x, y: x * y)
+#
+#
+# numbers = factorials(6)
+#
+# print(*numbers)
+# from itertools import cycle
+# from string import ascii_uppercase
+#
+#
+# def alnum_sequence():
+#     letters = ascii_uppercase
+#     digits = (digit for digit in range(1, 27))
+#     words = (word for word in letters)
+#     for digit, word in cycle(zip(digits, words)):
+#         yield f"{digit}"
+#         yield f"{word}"
+#
+#
+# alnum = alnum_sequence()
+#
+# print(*(next(alnum) for _ in range(55)))
+#
+#
+# alnum = alnum_sequence()
+#
+# print(*(next(alnum) for _ in range(100)))
+
+# from itertools import dropwhile
+#
+#
+# def drop_while_negative(iterable):
+#     return dropwhile(lambda x: x < 0, iterable)
+#
+#
+# numbers = [-3, -2, -1, 0, 1, 2, 3]
+#
+# print(*drop_while_negative(numbers))
+
+# from itertools import takewhile, dropwhile
+#
+#
+# def drop_this(iterable, obj):
+#     return dropwhile(lambda x: x == obj, iterable)
+#
+#
+# numbers = [0, 0, 0, 1, 2, 3]
+#
+# print(*drop_this(numbers, 0))
+
+# from itertools import islice
+#
+#
+# def take(iterable, n):
+#     return islice(iterable, n)
+#
+#
+# print(*take(range(10), 5))
+#
+# iterator = iter('beegeek')
+#
+# print(*take(iterator, 22))
+
+# from itertools import islice
+#
+#
+# def take_nth(iterable, n):
+#     return next(islice(iterable, n - 1, n), None)
+#
+#
+# numbers = [11, 22, 33, 44, 55]
+#
+# print(take_nth(numbers, 3))
+#
+# iterator = iter('beegeek')
+#
+# print(take_nth(iterator, 4))
+#
+# iterator = iter('beegeek')
+#
+# print(take_nth(iterator, 10))
+
+# from itertools import accumulate, chain
+#
+#
+# def sum_of_digits(iterable):
+#     str_digits = chain.from_iterable(map(str, iterable))
+#     return sum(int(digit) for digit in str_digits)
+#
+#
+# print(sum_of_digits([13, 20, 41, 2, 2, 5]))
+
+
+# def is_rising(iterable):
+#     prev = None
+#     for item in iterable:
+#         if prev is not None and prev >= item:
+#             return False
+#         prev = item
+#     return True
+#
+# print(is_rising([1, 2, 3, 4, 5]))
+#
+# iterator = iter([1, 1, 1, 2, 3, 4])
+#
+# print(is_rising(iterator))
+#
+# iterator = iter(list(range(100, 200)))
+#
+# print(is_rising(iterator))
+
+# def max_pair(iterable):
+#     max_sum = float('-inf')
+#     for i in range(1, len(iterable)):
+#         max_sum = max(max_sum, iterable[i-1] + iterable[i])
+#     return max_sum
+#
+#
+# print(max_pair([1, 8, 2, 4, 3]))
+# iterator = iter([1, 2, 3, 4, 5])
+#
+# print(max_pair(iterator))
+# iterator = iter([0, 0, 0, 0, 0, 0, 0, 0, 0])
+#
+# print(max_pair(iterator))
+
+# from collections import namedtuple
+# from itertools import groupby
+#
+# Person = namedtuple('Person', ['name', 'age', 'height'])
+#
+# persons = [
+#     Person('Tim', 63, 193),
+#     Person('Eva', 47, 158),
+#     Person('Mark', 71, 172),
+#     Person('Alex', 45, 193),
+#     Person('Jeff', 63, 193),
+#     Person('Ryan', 41, 184),
+#     Person('Ariana', 28, 158),
+#     Person('Liam', 69, 193)
+# ]
+#
+#
+# persons.sort(key=lambda x: x.height)
+#
+# for height, group in groupby(persons, key=lambda x: x.height):
+#     names = ', '.join(sorted(person.name for person in group))
+#     print(f"{height}: {names}")
+
+# from collections import namedtuple
+# from itertools import groupby
+#
+#
+# Student = namedtuple('Student', ['surname', 'name', 'grade'])
+#
+# students = [
+#     Student('Гагиев', 'Александр', 10),
+#     Student('Дедегкаев', 'Илья', 11),
+#     Student('Кодзаев', 'Георгий', 10),
+#     Student('Набокова', 'Алиса', 11),
+#     Student('Кораев', 'Артур', 10),
+#     Student('Шилин', 'Александр', 11),
+#     Student('Уртаева', 'Илина', 11),
+#     Student('Салбиев', 'Максим', 10),
+#     Student('Капустин', 'Илья', 11),
+#     Student('Гудцев', 'Таймураз', 11),
+#     Student('Перчиков', 'Максим', 10),
+#     Student('Чен', 'Илья', 11),
+#     Student('Елькина', 'Мария', 11),
+#     Student('Макоев', 'Руслан', 11),
+#     Student('Албегов', 'Хетаг', 11),
+#     Student('Щербак', 'Илья', 10),
+#     Student('Идрисов', 'Баграт', 11),
+#     Student('Гапбаев', 'Герман', 10),
+#     Student('Цивинская', 'Анна', 10),
+#     Student('Туткевич', 'Юрий', 11),
+#     Student('Мусиков', 'Андраник', 11),
+#     Student('Гадзиев', 'Георгий', 11),
+#     Student('Белов', 'Юрий', 11),
+#     Student('Акоева', 'Диана', 11),
+#     Student('Денисов', 'Илья', 11),
+#     Student('Букулова', 'Диана', 10),
+#     Student('Акоева', 'Лера', 11)
+# ]
+#
+#
+# sorted_students_name = max(groupby(sorted(students, key=lambda x: x.name), key=lambda x: x.name), key=lambda x: len(list(x[1])))
+#
+# print(sorted_students_name[0])
+#
+
+# from collections import defaultdict
+#
+#
+# def group_words(iterable):
+#     dict_words = defaultdict(list)
+#
+#     for i in iterable:
+#         dict_words[len(i)].append(i)
+#
+#     for key, value in sorted(dict_words.items()):
+#         yield f"{key} -> {value}"
+#
+#
+# word = ['hi', 'never', 'here', 'my', 'blue']
+#
+# for lens, group in group_words(word):
+#     print(lens, *group)
+
+# from itertools import groupby
+#
+# words = input().split()
+#
+# groups = {}
+# sorted_words = sorted(words, key=len)
+# for length, group in groupby(sorted_words, key=len):
+#     groups[length] = sorted(list(group))
+#
+# for length, words in sorted(groups.items()):
+#     words_list = ', '.join(words)
+#     print(f"{length} -> {words_list}")
+
+# from itertools import permutations
+
+# string = input()
+# unique_permutations = set(permutations(string))
+#
+# for perm in sorted(unique_permutations):
+#     print(''.join(perm))
+#
+# for tpl in sorted(set(permutations(input()))):
+#     print(''.join(tpl))
+
